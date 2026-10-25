@@ -1,0 +1,65 @@
+version: "0.3.0"
+kind: expected-invariants
+required_audit_cases:
+  - partial-project
+  - nearly-complete-project
+  - mixed-languages
+  - incorrect-cta
+  - contradictory-price
+  - unrecoverable-error
+  - literal-translation
+  - weak-onboarding
+  - manipulative-paywall
+  - inconsistent-glossary
+  - copy-should-remain-unchanged
+  - behavior-dependent-blocker
+required_context_cases:
+  - no-context-paywall
+  - inferred-repository-context
+  - declared-vs-code-conflict
+  - missing-authoritative-pricing
+  - low-risk-microcopy
+  - existing-glossary-reuse
+  - context-drift
+  - unsupported-landing-claim
+  - regional-locale-context
+  - authorized-copy-only-remediation
+required_product_contexts:
+  - "attraction/discovery"
+  - "value proposition"
+  - "trust/security/privacy"
+  - "product communication"
+  - "onboarding/activation"
+  - "registration/login/recovery"
+  - "forms/data capture"
+  - "pricing/paywalls/monetization"
+  - "errors/recovery"
+  - "system states"
+  - "help/support/education"
+  - "legal/institutional/compliance"
+required_locales: [es-419, es-MX, en-US, en-GB]
+required_modes: [point, audit, remediation]
+required_context_statuses: [complete, partial, conflicted, missing]
+required_context_stages: [new, mid-project, nearly-complete, unknown]
+required_evidence_states: [declared, verified, observed, inferred, conflicted, unknown]
+required_quality_checks: [semantic, coherence, congruence, linguistic, localization, accessibility, marketing-transparency, anti-dark-pattern]
+required_priorities: [urgent, necessary, recommended, optional]
+exact_finding_fields: [id, priority, category, scenario, location, current_text, problem, evidence, proposed_change, expected_impact, confidence, blocking_question]
+required_output_keys: [mode, diagnosis, detected_problems, main_proposal, alternatives, language_locale, tone_register, rationale, confidence, assumptions, blocking_questions, findings, remediation, project_context]
+invariants:
+  - "Unspecified Spanish defaults to es-419 and declares that assumption."
+  - "Unspecified English defaults to en-US and declares that assumption."
+  - "Audit mode is read-only by default; remediation requires explicit bounded authorization."
+  - "Findings use one of the twelve product-context IDs and exactly the unchanged 12-key schema."
+  - "Existing copy is evidence, not truth; source precedence is explicit user decision, official product source, verified behavior, project docs, existing copy, then inference."
+  - "High-risk copy requires declared or verified context per material claim; otherwise the response diagnoses incomplete context and invents no claim."
+  - "Every response includes project_context with status, stage, sources, missing, conflicts, assumptions, and confidence."
+  - "Audit and remediation include project_context.discovery_ledger with consulted, queries, not_consulted, and expansions; point work may keep it compact."
+  - "Discovery classifies mode, surface, flow, locale, channel, risk, and claims before inventory, targeted search, fragment reading, sufficiency evaluation, and stop."
+  - "Point/low risk starts with 1–3 files and 1 query; medium with up to 5 candidates, 3 queries, and 3 fragments; high/audit inventories first and starts with up to 5 queries."
+  - "Discovery stops at risk-appropriate sufficiency and records every expansion caused by contradiction, material claim, real dependency, or explicit request."
+  - "One sequential bounded agent is the default for 4+ exploratory files or 2+ writing files; parallel explorers for the same audit are prohibited."
+  - "A second verifier is used only for high risk, authoritative contradiction, or requested validation; tests/builds run only when requested or required and execute once."
+  - "Responses begin with a 2–5 sentence human summary that explains product meaning and actionable diagnosis before technical evidence."
+  - "Existing glossaries and guides are reused instead of duplicated."
+  - "No framework, private API, external tool, or model-training assumption is required."

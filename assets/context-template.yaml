@@ -1,0 +1,58 @@
+version: "0.2.0"
+kind: product-language-context-template
+status: missing
+stage: unknown
+sources:
+  - path: ".product-language/context.yaml"
+    status: unknown
+    confidence: 0.0
+missing:
+  - "Declare product facts, audience, locale, and high-risk claim sources."
+conflicts: []
+assumptions: []
+confidence: 0.0
+context:
+  product:
+    name: null
+    category: null
+    description: null
+    problem: null
+    markets: []
+  audience:
+    primary: []
+    secondary: []
+    experience_level: null
+  value:
+    benefits: []
+    differentiators: []
+    avoid_claims: []
+  capabilities:
+    verified: []
+    out_of_scope: []
+  business:
+    model: null
+    pricing_source: null
+    paid_surfaces: []
+  trust:
+    verified_claims: []
+    unverified_claims: []
+  voice:
+    traits: []
+    avoid: []
+  language:
+    default_locale: null
+    supported_locales: []
+  terminology:
+    preferred: {}
+    prohibited: []
+    source: null
+  constraints:
+    legal_review_required_for: []
+    product_rules: []
+  resources:
+    brand: []
+    glossary: []
+    localization: []
+    product_docs: []
+    tests: []
+  policy_source: null

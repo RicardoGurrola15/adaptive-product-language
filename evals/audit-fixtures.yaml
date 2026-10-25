@@ -1,0 +1,112 @@
+version: "0.2.0"
+kind: audit-fixtures
+audit_defaults:
+  mode: audit
+  authorization: read_only
+  group_by: flow
+  preserve_evidence: true
+  scan:
+    - ui-components
+    - routes
+    - localization-files
+    - forms
+    - errors
+    - pricing-paywalls
+    - public-content
+    - seo
+    - system-states
+scenarios:
+  - id: partial-project
+    project_state: partial
+    evidence: "Only account and landing flows exist."
+    expected:
+      priority_floor: recommended
+      must_report: ["implemented surfaces", "missing context"]
+      must_not: ["invent absent flows", "edit files"]
+
+  - id: nearly-complete-project
+    project_state: nearly-complete
+    evidence: "All primary routes exist; final copy pass is pending."
+    expected:
+      priority_floor: necessary
+      must_report: ["release-risk inconsistencies", "flow grouping"]
+      must_not: ["speculative redesign"]
+
+  - id: mixed-languages
+    project_state: mixed
+    evidence: "Spanish navigation contains English form errors."
+    expected:
+      categories: ["localization", "coherence"]
+      must_report: ["affected flows", "locale assumption"]
+      must_not: ["silently normalize unsupported locale behavior"]
+
+  - id: incorrect-cta
+    project_state: nearly-complete
+    evidence: "Button label says Publish; route opens Preview."
+    expected:
+      categories: ["semantic", "congruence"]
+      must_report: ["label/action mismatch"]
+      must_not: ["change route behavior"]
+
+  - id: contradictory-price
+    project_state: nearly-complete
+    evidence: "Pricing card and checkout expose different cadence."
+    expected:
+      priority: urgent
+      blocking_question_required: true
+      must_report: ["evidence from both surfaces", "authoritative-price question"]
+
+  - id: unrecoverable-error
+    project_state: partial
+    evidence: "Network error has no user action and no support path."
+    expected:
+      categories: ["accessibility", "semantic"]
+      must_report: ["missing recovery behavior"]
+      must_not: ["claim a retry exists"]
+
+  - id: literal-translation
+    project_state: nearly-complete
+    evidence: "Locale file mirrors English syntax in Spanish."
+    expected:
+      categories: ["linguistic", "localization"]
+      must_report: ["intent-preserving alternative"]
+      must_not: ["rename variables"]
+
+  - id: weak-onboarding
+    project_state: nearly-complete
+    evidence: "Welcome screen does not state the first useful action."
+    expected:
+      categories: ["coherence", "accessibility"]
+      must_report: ["first-value gap"]
+      must_not: ["invent features"]
+
+  - id: manipulative-paywall
+    project_state: nearly-complete
+    evidence: "Decline action uses guilt language and annual cadence is obscured."
+    expected:
+      priority: urgent
+      categories: ["marketing-transparency", "anti-dark-pattern"]
+      must_report: ["clear decline", "price/cadence disclosure"]
+
+  - id: inconsistent-glossary
+    project_state: nearly-complete
+    evidence: "Three labels refer to the same user concept."
+    expected:
+      categories: ["coherence", "localization"]
+      must_report: ["canonical-term evidence", "remaining variants"]
+
+  - id: copy-should-remain-unchanged
+    project_state: nearly-complete
+    evidence: "The same accurate Save changes label is consistent across locales."
+    expected:
+      findings: []
+      must_report: ["why no change is warranted"]
+      must_not: ["create a polish finding"]
+
+  - id: behavior-dependent-blocker
+    project_state: partial
+    evidence: "Success copy claims persistence but storage behavior is unverified."
+    expected:
+      blocking_question_required: true
+      must_report: ["behavior question"]
+      must_not: ["remediate copy as if persistence were confirmed"]

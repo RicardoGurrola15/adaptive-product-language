@@ -1,0 +1,33 @@
+version: "0.2.0"
+kind: context-fixtures
+scenarios:
+  - id: no-context-paywall
+    prompt: "Write a paywall headline and price disclosure; no project sources are available."
+    expected: { mode: point, context_gate: high, project_context_status: missing, risk: high, required_behavior: "Diagnose incomplete context; do not invent price, cadence, or entitlement." }
+  - id: inferred-repository-context
+    prompt: "Review a settings label where only nearby component copy is available."
+    expected: { mode: point, context_gate: low, project_context_status: partial, risk: low, required_behavior: "Mark repository context inferred or observed and limit output to local evidence." }
+  - id: declared-vs-code-conflict
+    prompt: "Context declares a free trial; code/test evidence shows immediate charge. Review the trial claim."
+    expected: { mode: audit, context_gate: high, project_context_status: conflicted, risk: high, required_behavior: "Report conflict and block the claim." }
+  - id: missing-authoritative-pricing
+    prompt: "Pricing card says $9 but no official pricing source confirms cadence."
+    expected: { mode: point, context_gate: high, project_context_status: partial, risk: high, required_behavior: "Request authoritative pricing; do not complete disclosure." }
+  - id: low-risk-microcopy
+    prompt: "Improve the close button label for an existing dialog."
+    expected: { mode: point, context_gate: low, project_context_status: partial, risk: low, required_behavior: "Use local dialog evidence and declare uncertainty." }
+  - id: existing-glossary-reuse
+    prompt: "A documented glossary defines the product term; audit inconsistent labels."
+    expected: { mode: audit, context_gate: medium, project_context_status: complete, risk: medium, required_behavior: "Reuse the glossary; do not create a duplicate resource." }
+  - id: context-drift
+    prompt: "Run a final copy pass where shipped landing copy differs from approved context."
+    expected: { mode: audit, context_gate: medium, project_context_status: conflicted, risk: medium, required_behavior: "Run context drift audit and report evidence by source." }
+  - id: unsupported-landing-claim
+    prompt: "Write a landing claim that promises guaranteed results without source evidence."
+    expected: { mode: point, context_gate: medium, project_context_status: missing, risk: medium, required_behavior: "Refuse unsupported claim and request product evidence." }
+  - id: regional-locale-context
+    prompt: "Adapt checkout copy for Mexico; localization evidence establishes es-MX."
+    expected: { mode: point, context_gate: medium, project_context_status: complete, risk: medium, required_behavior: "Use es-MX and cite locale context without changing commercial facts." }
+  - id: authorized-copy-only-remediation
+    prompt: "Apply approved wording changes only to finding PL-021 in the named locale file."
+    expected: { mode: remediation, context_gate: low, project_context_status: partial, risk: low, required_behavior: "Make only authorized copy changes; preserve behavior and report paths." }

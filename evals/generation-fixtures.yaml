@@ -1,0 +1,112 @@
+version: "0.2.0"
+kind: generation-fixtures
+scenarios:
+  - id: partial-project
+    mode: point
+    prompt: "The project has only a signup screen. Improve the Spanish CTA and explain what context is missing."
+    input_language: Spanish
+    expected:
+      audit_case: partial-project
+      locale_assumption: "es-419"
+      must_not_invent: ["unimplemented onboarding steps", "account benefits"]
+      required_behavior: "State the missing context and limit the proposal to the existing surface."
+
+  - id: nearly-complete-project
+    mode: audit
+    prompt: "Review a nearly complete launch flow for copy consistency without redesigning it."
+    input_language: English
+    expected:
+      audit_case: nearly-complete-project
+      locale_assumption: "en-US"
+      must_not_invent: ["new product promises"]
+      required_behavior: "Prioritize release risks and avoid speculative redesign."
+
+  - id: mixed-languages
+    mode: point
+    prompt: "Review this screen where the heading is Spanish but the button is English: 'Publica tu anuncio' / 'Continue'."
+    input_language: mixed
+    expected:
+      audit_case: mixed-languages
+      locale_assumption: "Ask only if the intended active locale cannot be inferred; otherwise declare the chosen locale."
+      required_behavior: "Flag mixed active UI and propose a coherent pair."
+
+  - id: incorrect-cta
+    mode: point
+    prompt: "The button opens a preview but says 'Publish'. Review the CTA."
+    input_language: English
+    expected:
+      audit_case: incorrect-cta
+      locale_assumption: "en-US"
+      required_behavior: "Align the label with the actual preview outcome; do not change behavior."
+
+  - id: contradictory-price
+    mode: point
+    prompt: "A card says '$9/month' while checkout says '$99/year'. Resolve the wording."
+    input_language: English
+    expected:
+      audit_case: contradictory-price
+      locale_assumption: "en-US"
+      required_behavior: "Create a blocking finding and ask for the authoritative price/cadence."
+
+  - id: unrecoverable-error
+    mode: point
+    prompt: "The error says 'Something went wrong' and there is no retry or support path."
+    input_language: English
+    expected:
+      audit_case: unrecoverable-error
+      locale_assumption: "en-US"
+      required_behavior: "Flag missing recovery behavior; do not promise a retry that does not exist."
+
+  - id: literal-translation
+    mode: point
+    prompt: "Rewrite the literal Spanish translation 'Haz clic aquí para comenzar tu viaje' for a concise onboarding button."
+    input_language: Spanish
+    expected:
+      audit_case: literal-translation
+      locale_assumption: "es-419"
+      required_behavior: "Translate intent and register, not word order."
+
+  - id: weak-onboarding
+    mode: point
+    prompt: "Improve 'Welcome to Casa. Explore.' so a first-time user knows the first useful action."
+    input_language: English
+    expected:
+      audit_case: weak-onboarding
+      locale_assumption: "en-US"
+      required_behavior: "Clarify first value and next action without inventing capabilities."
+
+  - id: manipulative-paywall
+    mode: point
+    prompt: "Review a paywall that says 'No, I prefer missing out' under a hidden annual price."
+    input_language: English
+    expected:
+      audit_case: manipulative-paywall
+      locale_assumption: "en-US"
+      required_behavior: "Remove guilt language and require transparent price/cadence terms."
+
+  - id: inconsistent-glossary
+    mode: point
+    prompt: "The same concept appears as 'listing', 'property', and 'post' across the product. Recommend a glossary decision."
+    input_language: English
+    expected:
+      audit_case: inconsistent-glossary
+      locale_assumption: "en-US"
+      required_behavior: "Identify the canonical term only if product evidence supports it; otherwise ask."
+
+  - id: copy-should-remain-unchanged
+    mode: point
+    prompt: "Review 'Guardar cambios' for a control that really persists edits."
+    input_language: Spanish
+    expected:
+      audit_case: copy-should-remain-unchanged
+      locale_assumption: "es-419"
+      required_behavior: "Return no change when evidence shows the copy is accurate and coherent."
+
+  - id: behavior-dependent-blocker
+    mode: point
+    prompt: "Rewrite 'Your draft was saved' when nobody has verified whether drafts persist."
+    input_language: English
+    expected:
+      audit_case: behavior-dependent-blocker
+      locale_assumption: "en-US"
+      required_behavior: "Stop and ask whether persistence is real; do not rewrite around unknown behavior."

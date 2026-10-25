@@ -1,0 +1,5 @@
+display_name: Adaptive Product Language
+short_description: Generate, review, audit, and safely remediate product language across locales.
+default_prompt: >-
+  Use Adaptive Product Language to inspect context, declare the inferred or requested
+  locale, check product-language quality, and return the structured output contract.
