@@ -7,3 +7,6 @@ build/
 coverage/
 *.log
 .codex/
+
+__pycache__/
+*.py[cod]

@@ -1,0 +1,42 @@
+{
+  "case_id": "example",
+  "condition": "baseline",
+  "run_id": "example-001",
+  "model": {
+    "name": "model-name",
+    "provider": "provider",
+    "version": null,
+    "temperature": null,
+    "seed": null
+  },
+  "prompt_context": {
+    "prompt_hash": null,
+    "context_hash": null,
+    "condition_order": null
+  },
+  "output": "",
+  "quality_scores": {
+    "semantic_accuracy": null,
+    "product_context_fit": null,
+    "clarity_actionability": null,
+    "language_locale_quality": null,
+    "tone_register": null,
+    "consistency": null,
+    "transparency_anti_manipulation": null,
+    "audit_detection": null
+  },
+  "expected_findings_found": [],
+  "telemetry": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "elapsed_ms": null,
+    "tool_calls": null,
+    "files_read": null
+  },
+  "evaluator": {
+    "evaluator_id": "",
+    "blind": true,
+    "scored_at": "",
+    "notes": ""
+  }
+}

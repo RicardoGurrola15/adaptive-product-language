@@ -96,3 +96,7 @@ Check frontmatter, required markers, local links, and YAML under `agents/` and `
 ## Limitations
 
 The skill cannot infer authoritative product policy, legal requirements, pricing truth, runtime behavior, or accessibility conformance from copy alone. It must stop and escalate rather than guess.
+
+## Benchmark
+
+See [benchmarks/README.md](benchmarks/README.md).

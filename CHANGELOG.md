@@ -1,3 +1,7 @@
+## 2026-10-25
+
+- Added portable paired quality and profile-cost benchmark fixtures and aggregator.
+
 # Changelog
 
 All notable changes to Adaptive Product Language are documented here.

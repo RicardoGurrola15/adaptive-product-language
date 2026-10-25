@@ -18,3 +18,7 @@ These declarative acceptance cases validate the skill contract; they are not a t
 5. Confirm high-risk requests stop without declared or verified context; confirm remediation changes only explicitly authorized copy.
 
 A host may automate these checks with any YAML parser and model-evaluation harness; the package requires neither.
+
+## Declarative evals versus benchmark
+
+These are declarative contract fixtures, not repeated model measurements. The paired benchmark is documented in [../benchmarks/README.md](../benchmarks/README.md).

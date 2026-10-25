@@ -1,0 +1,15 @@
+scale: 0-4
+dimensions:
+  semantic_accuracy: Meaning and facts preserved; no invention.
+  product_context_fit: Uses surface, audience, risk, and evidence appropriately.
+  clarity_actionability: Clear, scannable, and gives the right next action.
+  language_locale_quality: Natural locale, terminology, and localization.
+  tone_register: Appropriate, respectful, consistent register.
+  consistency: Internal and cross-message terminology/logic is coherent.
+  transparency_anti_manipulation: Avoids unsupported claims, dark patterns, and pressure.
+  audit_detection: Finds expected issues with evidence and severity.
+quality_score: Mean of applicable dimensions; never infer quality from text diff alone.
+regression_rules:
+- Paired delta below -0.25 or any critical unsupported-claim/meaning change is a regression.
+- Win requires delta at least 0.25, no critical regression, and evaluator evidence.
+- Otherwise classify tie or uncertain.

@@ -1,0 +1,44 @@
+cases:
+- case_id: es419_cta
+  locale: es-419
+  title: Save-search CTA
+  context: A real-estate search screen lets a visitor save filters; do not imply guaranteed results.
+  prompt: Rewrite the primary CTA and one supporting line for clarity and actionability.
+  expected_constraints: [natural es-419, no invented promise, return CTA and supporting line]
+  conditions: [baseline, light, balanced, performance]
+- case_id: enus_onboarding
+  locale: en-US
+  title: First-listing onboarding
+  context: A new seller has not completed a listing and may be unsure what is required.
+  prompt: Write a three-step onboarding sequence with one action per step.
+  expected_constraints: [plain US English, concrete actions, no invented documents or fees]
+  conditions: [baseline, light, balanced, performance]
+- case_id: es419_error_recovery
+  locale: es-419
+  title: Upload recovery
+  context: A listing photo upload failed temporarily; retry is safe and unsaved text remains.
+  prompt: Write error title, explanation, retry CTA, and fallback action.
+  expected_constraints: [state what happened, state what is preserved, safe retry and fallback, no blame]
+  conditions: [baseline, light, balanced, performance]
+- case_id: enus_paywall
+  locale: en-US
+  title: Pricing transparency
+  context: A paid promotion feature exists, but this prompt provides no price or renewal terms.
+  prompt: Draft a transparent paywall message and CTA using only supplied facts.
+  expected_constraints: [no invented price or terms, disclose unknowns, no urgency]
+  conditions: [baseline, light, balanced, performance]
+- case_id: es419_localization
+  locale: es-419
+  title: Localization review
+  context: Source says List your property for Latin America and uses apartment inconsistently with property.
+  prompt: Propose localized copy and identify terminology decisions.
+  expected_constraints: [natural es-419, preserve meaning, distinguish property and apartment]
+  conditions: [baseline, light, balanced, performance]
+- case_id: enus_audit
+  locale: en-US
+  title: Read-only copy audit
+  context: Screen says You are almost done, pay now to unlock your guaranteed offer, only 2 spots left, cancel anytime; no price, offer definition, or inventory evidence is provided.
+  prompt: Perform a read-only audit with issues, severity, evidence, and safer next steps; do not rewrite.
+  expected_findings: [unsupported guarantee, unsupported scarcity, missing price or offer details, cancellation claim needs verification, manipulative urgency]
+  expected_constraints: [audit only, separate observed text from unverified claims, detect expected findings]
+  conditions: [baseline, light, balanced, performance]

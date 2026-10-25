@@ -1,4 +1,4 @@
-version: "0.4.0"
+version: "0.5.0"
 kind: expected-invariants
 required_audit_cases:
   - partial-project
@@ -68,3 +68,6 @@ invariants:
   - "Responses begin with a 2–5 sentence human summary that explains product meaning and actionable diagnosis before technical evidence."
   - "Existing glossaries and guides are reused instead of duplicated."
   - "No framework, private API, external tool, or model-training assumption is required."
+
+- id: benchmark baseline/profile separation
+  requirement: Benchmark baseline quality is compared separately from light, balanced, and performance telemetry; text difference alone cannot establish quality.
