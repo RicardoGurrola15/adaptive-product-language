@@ -35,6 +35,10 @@ To install from GitHub, clone or download this repository and copy its root dire
 
 This package requires no private APIs or dependencies.
 
+## Portability
+
+This is a portable, platform-neutral Agent Skills package usable by Codex, Claude, Gemini CLI, and other agents or hosts that support the Agent Skills convention or can load Markdown instructions. The package core is `SKILL.md` plus its references, assets, and evals; `agents/openai.yaml` is optional Codex/OpenAI metadata. Installation and discovery are host-specific, and GitHub provides distribution rather than a universal installer. There are no private APIs, MCP, proprietary tools, runtime dependencies, or model dependencies. If a host has no automatic discovery, load the package manually and explicitly invoke `adaptive-product-language`.
+
 ## Efficient investigation
 
 | Request | Initial budget | Escalate only when |

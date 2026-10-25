@@ -2,6 +2,12 @@
 
 All notable changes to Adaptive Product Language are documented here.
 
+## [0.3.1] - 2026-10-25
+
+### Changed
+
+- Documented the package portability model across Agent Skills-compatible or Markdown-capable hosts, including host-specific installation/discovery and optional Codex/OpenAI metadata.
+
 ## [0.3.0] - 2026-10-25
 
 ### Changed

@@ -4,12 +4,16 @@ description: "Trigger: product language, UX copy, localization, copy audit, bili
 license: Apache-2.0
 metadata:
   author: "casamapa"
-  version: "0.3.0"
+  version: "0.3.1"
 ---
 
 ## Activation Contract
 
 Use for copy requests, read-only audits, or explicitly authorized bounded remediation. Treat UI language as product behavior. **Texto sin contexto es ser errático.**
+
+## Portability
+
+This is a portable, platform-neutral Agent Skills package: the core is `SKILL.md` plus its references, assets, and evals. `agents/openai.yaml` is optional Codex/OpenAI metadata; installation and discovery are host-specific. GitHub is a distribution channel, not a universal installer. The package has no private APIs, MCP, proprietary tools, runtime dependencies, or model dependencies. Hosts without automatic discovery can load the package manually and explicitly invoke `adaptive-product-language`.
 
 ## Hard Rules
 
