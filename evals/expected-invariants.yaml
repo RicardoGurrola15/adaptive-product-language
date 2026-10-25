@@ -1,4 +1,4 @@
-version: "0.3.0"
+version: "0.4.0"
 kind: expected-invariants
 required_audit_cases:
   - partial-project
@@ -39,6 +39,7 @@ required_product_contexts:
   - "legal/institutional/compliance"
 required_locales: [es-419, es-MX, en-US, en-GB]
 required_modes: [point, audit, remediation]
+required_execution_profiles: [light, balanced, performance]
 required_context_statuses: [complete, partial, conflicted, missing]
 required_context_stages: [new, mid-project, nearly-complete, unknown]
 required_evidence_states: [declared, verified, observed, inferred, conflicted, unknown]
@@ -47,6 +48,10 @@ required_priorities: [urgent, necessary, recommended, optional]
 exact_finding_fields: [id, priority, category, scenario, location, current_text, problem, evidence, proposed_change, expected_impact, confidence, blocking_question]
 required_output_keys: [mode, diagnosis, detected_problems, main_proposal, alternatives, language_locale, tone_register, rationale, confidence, assumptions, blocking_questions, findings, remediation, project_context]
 invariants:
+  - "Unspecified requests use the balanced execution profile and report it inside project_context without adding a top-level output key."
+  - "Execution profiles are separate from operation mode; light is local and narrow, balanced uses progressive budgets, and performance increases relevant depth rather than speed."
+  - "User phrases modo ligero, modo balanceado, and modo rendimiento select the matching profile; the selected profile is never silently upgraded."
+  - "High-risk gates apply to every execution profile; performance never triggers unbounded or repository-wide work."
   - "Unspecified Spanish defaults to es-419 and declares that assumption."
   - "Unspecified English defaults to en-US and declares that assumption."
   - "Audit mode is read-only by default; remediation requires explicit bounded authorization."

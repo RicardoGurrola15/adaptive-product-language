@@ -39,6 +39,18 @@ This package requires no private APIs or dependencies.
 
 This is a portable, platform-neutral Agent Skills package usable by Codex, Claude, Gemini CLI, and other agents or hosts that support the Agent Skills convention or can load Markdown instructions. The package core is `SKILL.md` plus its references, assets, and evals; `agents/openai.yaml` is optional Codex/OpenAI metadata. Installation and discovery are host-specific, and GitHub provides distribution rather than a universal installer. There are no private APIs, MCP, proprietary tools, runtime dependencies, or model dependencies. If a host has no automatic discovery, load the package manually and explicitly invoke `adaptive-product-language`.
 
+## Execution profiles
+
+Profiles are independent of operation mode (`point`, `audit`, `remediation`). Unspecified requests use **balanced** and report `execution_profile: balanced` inside `project_context`. “Performance” means depth/quality, not speed.
+
+| Profile | Practical boundary |
+|---|---|
+| `light` | Lowest cost: local evidence, 1–2 files, one focused search; no broad inventory or subagent by default. |
+| `balanced` (default) | Progressive budgets and one bounded sequential agent only when broader exploration or multi-file writing justifies it. |
+| `performance` | Broader relevant evidence and cross-flow consistency; independent verifier only for high-risk, conflict, or requested validation. Never unbounded or repository-wide by default. |
+
+Recognize “modo ligero”, “modo balanceado”, and “modo rendimiento”. Never silently upgrade the selected profile; high-risk gates still apply. Details: [execution profiles](references/execution-profiles.md).
+
 ## Efficient investigation
 
 | Request | Initial budget | Escalate only when |

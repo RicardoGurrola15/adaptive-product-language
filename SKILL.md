@@ -4,7 +4,7 @@ description: "Trigger: product language, UX copy, localization, copy audit, bili
 license: Apache-2.0
 metadata:
   author: "casamapa"
-  version: "0.3.1"
+  version: "0.4.0"
 ---
 
 ## Activation Contract
@@ -21,6 +21,19 @@ This is a portable, platform-neutral Agent Skills package: the core is `SKILL.md
 - Do not read a repository, documentation tree, or reference cascade by default. Expand only for contradiction, material claim, real dependency, or explicit request; record the reason.
 - Preserve behavior, prices, limits, legal meaning, consent, variables, and intentional correct copy. Never invent product facts.
 - Audit is read-only; remediation needs explicit bounded authorization. Use one sequential, bounded agent only when the work exceeds local inspection.
+
+
+## Execution profiles
+
+Select an execution profile separately from the operation mode (`point`, `audit`, or `remediation`). If the user does not specify one, use **balanced** and declare `execution_profile: balanced` inside `project_context` (or its `discovery_ledger`). Users may say “modo ligero”, “modo balanceado”, or “modo rendimiento”. “Performance” means greater depth and quality, **not faster execution**; never silently upgrade the selected profile. High-risk gates apply in every profile.
+
+| Profile | Use | Budget and agent boundary |
+|---|---|---|
+| `light` | Simple microcopy or a tightly named surface. | Lowest cost: local evidence, 1–2 files, one focused search, no broad inventory or subagent by default. Escalate only for risk, contradiction, or an explicit request. |
+| `balanced` (default) | Normal point work, audits, and bounded remediation. | Current progressive budgets: classify, inventory candidates, targeted searches, relevant fragments, then stop at sufficient evidence. Use one bounded sequential agent only when justified by broader exploration or multi-file writing. |
+| `performance` | High-value review, cross-flow consistency, or requested depth. | Highest depth and cost: inspect broader relevant evidence and compare related flows/locales. Use an independent verifier only for high-risk work, authoritative conflict, or requested validation; never read unbounded or automatically scan the repository. |
+
+Compact examples: “modo ligero: mejora este CTA” stays local; “modo balanceado: auditá este onboarding” uses progressive evidence; “modo rendimiento: validá consistencia entre pricing y registro” expands only across those related flows. Record the chosen profile in `project_context`, without adding a top-level output key. See [execution profiles](references/execution-profiles.md) for routing details.
 
 ## Decision Gates
 

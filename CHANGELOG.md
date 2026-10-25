@@ -2,9 +2,14 @@
 
 All notable changes to Adaptive Product Language are documented here.
 
-## [0.3.1] - 2026-10-25
+## [0.4.0] - 2026-10-25
+
+### Added
+
+- Added explicit `light`, `balanced` (default), and `performance` execution profiles, separate from operation mode, with bounded budgets and profile reporting in `project_context`.
 
 ### Changed
+
 
 - Documented the package portability model across Agent Skills-compatible or Markdown-capable hosts, including host-specific installation/discovery and optional Codex/OpenAI metadata.
 
