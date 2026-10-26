@@ -1,0 +1,1441 @@
+[
+  {
+    "id": "basic-01",
+    "product_type": "service-landing-page",
+    "audience": "People comparing local home-cleaning services",
+    "channel": "public web landing page",
+    "business_model": "lead generation",
+    "scenario": "cta",
+    "locale": "es-419",
+    "risk": "low",
+    "stage": "existing",
+    "current_copy": "Continuar",
+    "context": "A local home-cleaning service landing page wants visitors to request an availability estimate. The form does not book an appointment yet.",
+    "prompt": "Audit the landing-page CTA and propose a clear primary action without implying a confirmed booking.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "surface": "landing hero > primary CTA",
+    "behavior": "Submitting opens an availability-estimate request; it does not book an appointment.",
+    "invariants": [
+      "CTA names an estimate, not a booking"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-02",
+    "scenario": "empty-state",
+    "locale": "en-US",
+    "risk": "low",
+    "stage": "nearly-complete",
+    "current_copy": "Todavía no hay nada acá",
+    "context": "An online clothing store shows no products yet in a saved wishlist.",
+    "prompt": "Write an empty-state message and action that helps shoppers continue browsing without inventing inventory.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "e-commerce-store",
+    "audience": "Shoppers comparing sustainable clothing",
+    "channel": "web storefront",
+    "business_model": "direct sales",
+    "surface": "wishlist empty state > browse CTA",
+    "behavior": "The wishlist is empty and the browse action returns to the storefront.",
+    "invariants": [
+      "Do not claim products are available"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-03",
+    "scenario": "error-recovery",
+    "locale": "es-419",
+    "risk": "low",
+    "stage": "new",
+    "current_copy": "Something went wrong. Try again.",
+    "context": "A digital wallet top-up failed temporarily; the balance was not changed and retry is safe.",
+    "prompt": "Write an error message with recovery steps, avoiding financial guarantees.",
+    "expected_findings": [
+      "clarity",
+      "risk"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "fintech-wallet",
+    "audience": "Consumers adding money to a digital wallet",
+    "channel": "mobile app",
+    "business_model": "financial service",
+    "surface": "wallet top-up error > retry action",
+    "behavior": "The failed top-up did not change the balance; retry is safe.",
+    "invariants": [
+      "Never claim money was added"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity",
+      "risk"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-04",
+    "scenario": "auth",
+    "locale": "en-US",
+    "risk": "medium",
+    "stage": "existing",
+    "current_copy": "Log in / Crear cuenta",
+    "context": "An online learning platform has email login and password recovery; no social login is available.",
+    "prompt": "Review the login copy and propose clearer recovery guidance without adding authentication methods.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "education-platform",
+    "audience": "Adult learners returning to online courses",
+    "channel": "web app",
+    "business_model": "subscription",
+    "surface": "login screen > access and recovery actions",
+    "behavior": "Email/password login is available; password recovery is available; social login is not.",
+    "invariants": [
+      "Do not add an authentication method",
+      "Recovery must not imply immediate access"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": {
+      "kind": "login-screen",
+      "elements": [
+        "heading",
+        "email field",
+        "password field",
+        "primary action",
+        "forgot-password action"
+      ],
+      "states": [
+        "idle",
+        "validation",
+        "recovery"
+      ]
+    },
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-05",
+    "scenario": "onboarding",
+    "locale": "es-419",
+    "risk": "low",
+    "stage": "nearly-complete",
+    "current_copy": "Empezá en 30 segundos",
+    "context": "A meal-delivery app asks a new user to choose dietary preferences before showing recommendations.",
+    "prompt": "Write a three-step onboarding sequence that explains value without implying medical advice.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "meal-delivery",
+    "audience": "Busy people ordering prepared meals",
+    "channel": "mobile app",
+    "business_model": "transactional commerce",
+    "surface": "onboarding screen > preference stepper",
+    "behavior": "The user selects dietary preferences before recommendations are shown.",
+    "invariants": [
+      "Do not present preferences as medical advice"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": {
+      "kind": "onboarding-screen",
+      "elements": [
+        "progress",
+        "preference controls",
+        "primary action",
+        "skip/continue affordance"
+      ],
+      "states": [
+        "step",
+        "validation",
+        "completion"
+      ]
+    },
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-06",
+    "scenario": "form",
+    "locale": "en-US",
+    "risk": "low",
+    "stage": "new",
+    "current_copy": "Guardar información",
+    "context": "A clinic request form collects preferred date, contact method, and reason for visit; submission requests review but does not confirm an appointment.",
+    "prompt": "Improve the form labels and submit button so the request is not confused with a confirmed appointment.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "health-appointment",
+    "audience": "Patients requesting a clinic appointment",
+    "channel": "web form",
+    "business_model": "service booking",
+    "surface": "request form > fields and submit action",
+    "behavior": "Submission requests clinic review and does not confirm an appointment.",
+    "invariants": [
+      "Submit must not imply a confirmed slot"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": {
+      "kind": "form",
+      "elements": [
+        "date field",
+        "contact method",
+        "reason field",
+        "submit action",
+        "confirmation state"
+      ],
+      "states": [
+        "idle",
+        "validation",
+        "submitted"
+      ]
+    },
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-07",
+    "scenario": "password",
+    "locale": "es-419",
+    "risk": "medium",
+    "stage": "existing",
+    "current_copy": "Password must contain 8 characters",
+    "context": "A developer tool requires a password with at least twelve characters and offers no password manager integration claim.",
+    "prompt": "Rewrite password guidance in plain US English without exposing implementation details.",
+    "expected_findings": [
+      "clarity",
+      "risk"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "developer-tool",
+    "audience": "Developers creating an API workspace",
+    "channel": "developer web app",
+    "business_model": "freemium SaaS",
+    "surface": "registration form > password helper and validation",
+    "behavior": "The password requirement is at least twelve characters.",
+    "invariants": [
+      "Do not weaken the requirement",
+      "Do not claim password-manager support"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity",
+      "risk"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-08",
+    "scenario": "upload",
+    "locale": "en-US",
+    "risk": "medium",
+    "stage": "nearly-complete",
+    "current_copy": "Subí tu documento",
+    "context": "An artist upload may fail because of a temporary network issue; the draft title remains saved.",
+    "prompt": "Write upload error and recovery copy that protects the saved draft and offers a safe retry.",
+    "expected_findings": [
+      "clarity",
+      "risk"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "creator-marketplace",
+    "audience": "Independent artists uploading digital products",
+    "channel": "web app",
+    "business_model": "commission marketplace",
+    "surface": "upload form > draft protection and retry",
+    "behavior": "A temporary network failure can interrupt upload; the draft title remains saved.",
+    "invariants": [
+      "Retry must preserve the draft title"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity",
+      "risk"
+    ],
+    "composition": {
+      "kind": "upload-screen",
+      "elements": [
+        "file control",
+        "draft title",
+        "error message",
+        "retry action",
+        "fallback action"
+      ],
+      "states": [
+        "uploading",
+        "failed",
+        "retry"
+      ]
+    },
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-09",
+    "scenario": "search",
+    "locale": "es-419",
+    "risk": "low",
+    "stage": "new",
+    "current_copy": "Search products",
+    "context": "A train search form accepts origin, destination, and date; results depend on availability.",
+    "prompt": "Write search guidance that sets expectations without promising seats or prices.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "travel-booking",
+    "audience": "Travelers searching for train routes",
+    "channel": "web app",
+    "business_model": "booking commission",
+    "surface": "search form > route fields and result state",
+    "behavior": "Results depend on route/date availability and may be empty.",
+    "invariants": [
+      "Do not promise seats or prices"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-10",
+    "scenario": "filters",
+    "locale": "en-US",
+    "risk": "low",
+    "stage": "existing",
+    "current_copy": "Filtrar resultados",
+    "context": "A property search lets users filter price, neighborhood, and bedrooms; filters do not guarantee matching listings.",
+    "prompt": "Improve filter labels and the no-results message for clarity.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "real-estate-search",
+    "audience": "Renters comparing apartments",
+    "channel": "web app",
+    "business_model": "lead generation",
+    "surface": "search screen > filter controls and empty state",
+    "behavior": "Filters narrow results but do not guarantee matching listings.",
+    "invariants": [
+      "No-results copy must preserve filter intent"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-11",
+    "scenario": "marketplace",
+    "locale": "es-419",
+    "risk": "low",
+    "stage": "nearly-complete",
+    "current_copy": "Buy now",
+    "context": "A handmade marketplace card links to a product detail page and seller profile.",
+    "prompt": "Write card and seller-link labels that explain what opens next.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "handmade-marketplace",
+    "audience": "Buyers and makers of handmade goods",
+    "channel": "web marketplace",
+    "business_model": "transaction fee",
+    "surface": "marketplace card > detail and seller links",
+    "behavior": "The card opens product details; the seller link opens the seller profile.",
+    "invariants": [
+      "Do not imply checkout from the card"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-12",
+    "scenario": "checkout",
+    "locale": "en-US",
+    "risk": "medium",
+    "stage": "new",
+    "current_copy": "Pay now",
+    "context": "A ticket checkout collects attendee details before payment; purchase is not complete until payment succeeds.",
+    "prompt": "Write checkout step labels and confirmation language without implying payment success early.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "event-ticketing",
+    "audience": "People buying tickets for local events",
+    "channel": "web checkout",
+    "business_model": "ticket sales",
+    "surface": "checkout screen > attendee step and payment action",
+    "behavior": "Payment is attempted after attendee details; purchase is complete only after payment succeeds.",
+    "invariants": [
+      "Do not confirm payment before success"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": {
+      "kind": "checkout-screen",
+      "elements": [
+        "attendee fields",
+        "order summary",
+        "payment action",
+        "success state"
+      ],
+      "states": [
+        "details",
+        "payment-pending",
+        "success"
+      ]
+    },
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-13",
+    "scenario": "pricing",
+    "locale": "es-419",
+    "risk": "high",
+    "stage": "existing",
+    "current_copy": "Only $9.99/month",
+    "context": "A SaaS pricing page has monthly plans, but exact prices and renewal terms are not supplied in this fixture.",
+    "prompt": "Draft transparent pricing structure copy without inventing prices, limits, or renewal terms.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "saas-pricing",
+    "audience": "Small teams evaluating project software",
+    "channel": "marketing website",
+    "business_model": "subscription SaaS",
+    "surface": "pricing page > plan card and cadence disclosure",
+    "behavior": "Monthly plans exist, but price and renewal terms are not supplied.",
+    "invariants": [
+      "Do not invent price, limits, or renewal"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-14",
+    "scenario": "paywall",
+    "locale": "en-US",
+    "risk": "high",
+    "stage": "nearly-complete",
+    "current_copy": "Unlock all features",
+    "context": "A fitness app offers a paid library; trial eligibility and cancellation terms are unknown.",
+    "prompt": "Write a non-manipulative paywall message that clearly separates known benefits from missing terms.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "fitness-membership",
+    "audience": "People comparing guided workout memberships",
+    "channel": "mobile app paywall",
+    "business_model": "subscription",
+    "surface": "paywall screen > benefits and purchase action",
+    "behavior": "A paid workout library exists; trial and cancellation terms are unknown.",
+    "invariants": [
+      "Separate known benefits from unknown terms"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-15",
+    "scenario": "promo",
+    "locale": "es-419",
+    "risk": "low",
+    "stage": "new",
+    "current_copy": "50% OFF today",
+    "context": "A newsletter sign-up form requests an email and says readers can unsubscribe later.",
+    "prompt": "Improve the promotional copy without using false urgency or guaranteed outcomes.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "newsletter",
+    "audience": "Readers subscribing to a local news newsletter",
+    "channel": "public web form",
+    "business_model": "advertising-supported media",
+    "surface": "newsletter signup > promotional message and consent",
+    "behavior": "The form collects email; readers can unsubscribe later.",
+    "invariants": [
+      "Do not use false urgency",
+      "Do not promise outcomes"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-16",
+    "scenario": "success",
+    "locale": "en-US",
+    "risk": "low",
+    "stage": "existing",
+    "current_copy": "¡Listo!",
+    "context": "A donation form has submitted successfully and displays a receipt link; no tax-deductibility claim is provided.",
+    "prompt": "Write a success message that confirms submission and points to the receipt without adding legal claims.",
+    "expected_findings": [],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "nonprofit-donations",
+    "audience": "Donors supporting a community nonprofit",
+    "channel": "donation form",
+    "business_model": "donations",
+    "surface": "donation success state > receipt link",
+    "behavior": "Submission succeeded and a receipt link is available.",
+    "invariants": [
+      "Do not add a tax-deductibility claim"
+    ],
+    "positive_control": true,
+    "findings": [],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-17",
+    "scenario": "loading",
+    "locale": "es-419",
+    "risk": "low",
+    "stage": "nearly-complete",
+    "current_copy": "Cargando…",
+    "context": "A video collection is loading and no playback error has occurred.",
+    "prompt": "Write a concise loading state that does not promise a loading duration.",
+    "expected_findings": [],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "video-streaming",
+    "audience": "Viewers opening a curated video collection",
+    "channel": "mobile app",
+    "business_model": "subscription media",
+    "surface": "video collection > loading state",
+    "behavior": "The collection is loading; no duration is known.",
+    "invariants": [
+      "Do not promise a time"
+    ],
+    "positive_control": true,
+    "findings": [],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-18",
+    "scenario": "permissions",
+    "locale": "en-US",
+    "risk": "high",
+    "stage": "new",
+    "current_copy": "Allow all access",
+    "context": "The app requests camera permission only when the user starts a scan; denying it leaves the user on the scan screen.",
+    "prompt": "Write permission rationale and fallback copy that explains the next step.",
+    "expected_findings": [
+      "clarity",
+      "risk"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "mobile-utility",
+    "audience": "People using a document-scanning utility",
+    "channel": "mobile app",
+    "business_model": "freemium utility",
+    "surface": "scan screen > camera permission rationale and fallback",
+    "behavior": "Camera permission is requested when scanning starts; denial leaves the user on the scan screen.",
+    "invariants": [
+      "Ask only for camera access",
+      "Explain the denial path"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity",
+      "risk"
+    ],
+    "composition": {
+      "kind": "permission-screen",
+      "elements": [
+        "rationale",
+        "system permission action",
+        "denial fallback"
+      ],
+      "states": [
+        "before-request",
+        "denied",
+        "scan"
+      ]
+    },
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-19",
+    "scenario": "privacy",
+    "locale": "es-419",
+    "risk": "high",
+    "stage": "existing",
+    "current_copy": "We never share your data",
+    "context": "A privacy settings page lets users manage marketing email preferences; it does not delete the account.",
+    "prompt": "Clarify the privacy control labels without implying account deletion or complete data removal.",
+    "expected_findings": [
+      "clarity",
+      "risk"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "privacy-focused-app",
+    "audience": "Users reviewing account privacy controls",
+    "channel": "web settings",
+    "business_model": "subscription SaaS",
+    "surface": "privacy notice > data-sharing claim",
+    "behavior": "The product has no verified source for the absolute data-sharing claim.",
+    "invariants": [
+      "Do not claim never without evidence"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity",
+      "risk"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-20",
+    "scenario": "notifications",
+    "locale": "en-US",
+    "risk": "low",
+    "stage": "nearly-complete",
+    "current_copy": "Turn on notifications",
+    "context": "A delivery status notification says the package is out for delivery; arrival time is not guaranteed.",
+    "prompt": "Improve the notification copy while preserving uncertainty about arrival time.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "last-mile-delivery",
+    "audience": "Customers tracking a local delivery",
+    "channel": "mobile app",
+    "business_model": "delivery fee",
+    "surface": "delivery settings > notification opt-in",
+    "behavior": "Notifications are optional and can be enabled from settings.",
+    "invariants": [
+      "Do not imply delivery depends on opt-in"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-21",
+    "scenario": "support",
+    "locale": "es-419",
+    "risk": "low",
+    "stage": "new",
+    "current_copy": "Contact support",
+    "context": "A help center provides general information and does not offer legal representation.",
+    "prompt": "Write support copy that is useful but does not imply legal advice or representation.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "legal-information",
+    "audience": "People seeking general tenant information",
+    "channel": "public help center",
+    "business_model": "content service",
+    "surface": "legal information > support action",
+    "behavior": "The support path opens a contact channel; no response time is supplied.",
+    "invariants": [
+      "Do not promise a response time"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-22",
+    "scenario": "help",
+    "locale": "en-US",
+    "risk": "low",
+    "stage": "existing",
+    "current_copy": "Ayuda y soporte",
+    "context": "A library search has no results for the current query and offers a link to browse the catalog.",
+    "prompt": "Write an empty search state and browse action in plain US English.",
+    "expected_findings": [
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "public-library",
+    "audience": "Library members looking for digital books",
+    "channel": "web portal",
+    "business_model": "public service",
+    "surface": "library help screen > support navigation",
+    "behavior": "Help content and support contact are separate destinations.",
+    "invariants": [
+      "Labels must distinguish help from contact"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-23",
+    "scenario": "localization",
+    "locale": "es-419",
+    "risk": "medium",
+    "stage": "nearly-complete",
+    "current_copy": "Guardar cambios",
+    "context": "The ordering flow uses Spanish es-419 and lets customers add dishes to a cart before checkout.",
+    "prompt": "Localize the primary action and cart-empty message naturally for es-419.",
+    "expected_findings": [
+      "clarity",
+      "localization"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "restaurant-ordering",
+    "audience": "Customers ordering from a Mexican restaurant",
+    "channel": "mobile web",
+    "business_model": "transactional commerce",
+    "surface": "order form > locale-aware save action",
+    "behavior": "The form saves a draft order; the Spanish locale requires natural localized wording.",
+    "invariants": [
+      "Preserve draft behavior",
+      "Use one canonical save term"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity",
+      "localization"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-24",
+    "scenario": "mixed-language",
+    "locale": "en-US",
+    "risk": "low",
+    "stage": "new",
+    "current_copy": "Create tu cuenta",
+    "context": "The site contains a mix of English and Spanish labels and only requests a booking inquiry.",
+    "prompt": "Identify the language-mixing problem and propose consistent en-US copy without inventing confirmed availability.",
+    "expected_findings": [
+      "clarity",
+      "localization"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "pet-services",
+    "audience": "Pet owners booking grooming services",
+    "channel": "public landing page",
+    "business_model": "service booking",
+    "surface": "account creation screen > bilingual heading and primary CTA",
+    "behavior": "The screen is intended for one active locale; the current strings mix Spanish and English.",
+    "invariants": [
+      "Do not silently change locale selection"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity",
+      "localization"
+    ],
+    "composition": {
+      "kind": "account-screen",
+      "elements": [
+        "heading",
+        "email field",
+        "password field",
+        "primary action"
+      ],
+      "states": [
+        "idle",
+        "validation",
+        "mixed-locale"
+      ]
+    },
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-25",
+    "scenario": "terminology-drift",
+    "locale": "es-419",
+    "risk": "medium",
+    "stage": "existing",
+    "current_copy": "Mis favoritos / Saved items",
+    "context": "The product documentation alternates between lead, prospect, and account for different objects.",
+    "prompt": "Audit terminology and recommend one consistent glossary distinction.",
+    "expected_findings": [
+      "clarity",
+      "localization"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "b2b-crm",
+    "audience": "Sales teams managing prospective accounts",
+    "channel": "web SaaS",
+    "business_model": "subscription SaaS",
+    "surface": "CRM navigation > saved-record label",
+    "behavior": "The same saved-record concept appears under two labels.",
+    "invariants": [
+      "Choose a canonical term from product evidence"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity",
+      "localization"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-26",
+    "scenario": "unsupported-claim",
+    "locale": "en-US",
+    "risk": "high",
+    "stage": "nearly-complete",
+    "current_copy": "The safest choice for everyone",
+    "context": "A landing page claims users will receive the best rate, but no comparison evidence or quote guarantee exists.",
+    "prompt": "Audit the claim and propose a transparent alternative without creating coverage promises.",
+    "expected_findings": [
+      "clarity",
+      "risk",
+      "unsupported-claim"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "insurance-quote",
+    "audience": "People comparing home-insurance information",
+    "channel": "marketing website",
+    "business_model": "lead generation",
+    "surface": "insurance quote landing > safety claim",
+    "behavior": "The product cannot substantiate a universal safest-choice claim from this fixture.",
+    "invariants": [
+      "Do not make comparative safety claims"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity",
+      "risk",
+      "unsupported-claim"
+    ],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-27",
+    "scenario": "contradictory-flow",
+    "locale": "es-419",
+    "risk": "high",
+    "stage": "new",
+    "current_copy": "Delete account / Keep account",
+    "context": "The room page says a reservation is held, while the next screen says payment is required before confirmation.",
+    "prompt": "Find the flow contradiction and state what product decision must be verified.",
+    "expected_findings": [
+      "clarity",
+      "contradiction",
+      "risk"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "hotel-booking",
+    "audience": "Travelers reserving hotel rooms",
+    "channel": "web checkout",
+    "business_model": "booking commission",
+    "surface": "destructive confirmation dialog > cancel/delete actions",
+    "behavior": "Delete is destructive; keep account is the safe exit.",
+    "invariants": [
+      "Labels must match the action",
+      "Do not reverse action semantics"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity",
+      "contradiction",
+      "risk"
+    ],
+    "composition": {
+      "kind": "confirmation-dialog",
+      "elements": [
+        "title",
+        "consequence text",
+        "destructive action",
+        "safe action"
+      ],
+      "states": [
+        "open",
+        "cancelled",
+        "confirmed"
+      ]
+    },
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-28",
+    "scenario": "audit",
+    "locale": "en-US",
+    "risk": "medium",
+    "stage": "existing",
+    "current_copy": "Click here",
+    "context": "A game screen says players have one minute left, but no timer source or rule is included in the fixture.",
+    "prompt": "Perform a read-only audit and flag unsupported urgency or rules instead of inventing them.",
+    "expected_findings": [
+      "audit-scope",
+      "clarity"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "mobile-game",
+    "audience": "Players starting a trivia challenge",
+    "channel": "mobile app",
+    "business_model": "free-to-play",
+    "surface": "game audit screen > composed notice and CTA",
+    "behavior": "The screen is audited read-only; Click here has no stated destination in the fixture.",
+    "invariants": [
+      "Audit must not edit behavior",
+      "Report missing destination evidence"
+    ],
+    "positive_control": false,
+    "findings": [
+      "audit-scope",
+      "clarity"
+    ],
+    "composition": {
+      "kind": "audit-composition",
+      "elements": [
+        "notice",
+        "primary CTA",
+        "supporting copy"
+      ],
+      "states": [
+        "observed"
+      ]
+    },
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-29",
+    "scenario": "remediation",
+    "locale": "es-419",
+    "risk": "medium",
+    "stage": "nearly-complete",
+    "current_copy": "No hay resultados",
+    "context": "An account page has a cancel button labeled Delete everything, but the behavior only pauses the next shipment.",
+    "prompt": "Propose an authorized copy correction and distinguish it from the behavior bug.",
+    "expected_findings": [
+      "clarity",
+      "remediation-boundary"
+    ],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "subscription-box",
+    "audience": "Customers managing a monthly product box",
+    "channel": "web account",
+    "business_model": "subscription commerce",
+    "surface": "subscription results screen > empty state remediation",
+    "behavior": "Only the named empty-state copy is authorized for remediation; behavior is unchanged.",
+    "invariants": [
+      "Do not alter filtering or subscription logic"
+    ],
+    "positive_control": false,
+    "findings": [
+      "clarity",
+      "remediation-boundary"
+    ],
+    "composition": {
+      "kind": "empty-state",
+      "elements": [
+        "title",
+        "explanation",
+        "authorized CTA"
+      ],
+      "states": [
+        "empty"
+      ]
+    },
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  },
+  {
+    "id": "basic-30",
+    "scenario": "settings",
+    "locale": "en-US",
+    "risk": "low",
+    "stage": "new",
+    "current_copy": "Account settings",
+    "context": "A dashboard has loading, empty, and filter states for public transit data; no data refresh schedule is provided.",
+    "prompt": "Review state and filter language for clarity without claiming currentness or update frequency.",
+    "expected_findings": [],
+    "constraints": [
+      "text-only",
+      "do not invent product facts",
+      "preserve variables and behavior"
+    ],
+    "product_type": "public-data-dashboard",
+    "audience": "Residents exploring public transit statistics",
+    "channel": "web dashboard",
+    "business_model": "public information",
+    "surface": "settings screen > navigation label",
+    "behavior": "The label opens account settings and is accurate as written.",
+    "invariants": [
+      "Positive control: no copy change is needed"
+    ],
+    "positive_control": true,
+    "findings": [],
+    "composition": null,
+    "rubric_applicability": {
+      "completeness": true,
+      "context_fit": true,
+      "specificity": true,
+      "coherence": true,
+      "naturalness_non_robotic_rhythm": true,
+      "commercial_congruence": true,
+      "cta_clarity": true,
+      "locale_quality": true,
+      "claims_boundary": true
+    }
+  }
+]

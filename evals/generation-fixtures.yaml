@@ -110,3 +110,35 @@ scenarios:
       audit_case: behavior-dependent-blocker
       locale_assumption: "en-US"
       required_behavior: "Stop and ask whether persistence is real; do not rewrite around unknown behavior."
+
+  - id: compose-login-screen
+    mode: point
+    route: compose
+    prompt: "Compose a login screen with email/password access, recovery, validation, and loading copy; social login is unavailable."
+    input_language: English
+    expected:
+      audit_case: login-screen-composition
+      locale_assumption: "en-US"
+      required_behavior: "Map copy to evidenced states without adding authentication methods."
+      must_not_invent: [social login, passwordless access, persistence]
+
+  - id: compose-request-form
+    mode: point
+    route: compose
+    prompt: "Compose a Spanish request form whose submit action requests review but does not confirm an appointment."
+    input_language: Spanish
+    expected:
+      audit_case: form-composition
+      locale_assumption: "es-419"
+      required_behavior: "Keep field labels, helper text, submit action, and submitted state behaviorally aligned."
+      must_not_invent: [confirmed appointment, available time slot]
+
+  - id: positive-control-accurate-copy
+    mode: point
+    prompt: "Review the concise loading message 'Cargando…' when content is loading and no duration is known. Return no change if it is accurate."
+    input_language: Spanish
+    expected:
+      audit_case: positive-control-accurate-copy
+      locale_assumption: "es-419"
+      required_behavior: "Return no finding when the copy is accurate, coherent, and behaviorally supported."
+      must_not_invent: [loading duration, error state]

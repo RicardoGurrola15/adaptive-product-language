@@ -7,6 +7,19 @@ build/
 coverage/
 *.log
 .codex/
-
 __pycache__/
 *.py[cod]
+
+# Benchmark outputs are local experiment artifacts; keep only the directory marker.
+benchmarks/results/**/*.json
+benchmarks/results/**/*.jsonl
+benchmarks/results/**/*.md
+benchmarks/results/**/*.txt
+benchmarks/results/**/raw/
+
+# Local benchmark summaries and generated report directories.
+benchmarks/local-reports/
+benchmarks/basic-results/
+benchmarks/experiments/
+benchmarks/results/**/reports/
+benchmarks/results/**/report.*

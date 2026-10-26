@@ -1,0 +1,32 @@
+{
+  "version": "2",
+  "purpose": "Define fair provider runs without invoking a model.",
+  "providers": {
+    "codex": {
+      "host": "Codex",
+      "skill_loading": "Load adaptive-product-language explicitly for skill conditions; do not load it for baseline.",
+      "output_directory": "benchmarks/results/codex"
+    },
+    "gemini": {
+      "host": "Gemini",
+      "skill_loading": "Install or load the same package explicitly for skill conditions; do not load it for baseline.",
+      "output_directory": "benchmarks/results/gemini"
+    }
+  },
+  "conditions": ["baseline", "light", "balanced", "performance"],
+  "pilot": {"cases": 12, "repetitions": 3, "total_condition_runs": 144},
+  "pilot_cases": [
+    "es419_cta", "enus_login_screen", "es419_form_composition", "enus_checkout",
+    "es419_error_recovery", "enus_paywall", "es419_localization", "enus_audit",
+    "es419_positive_loading", "enus_positive_success", "es419_marketing", "enus_permissions"
+  ],
+  "controls": {
+    "keep_fixed_within_provider": [
+      "model", "provider", "model_version", "reasoning_effort", "service_tier",
+      "temperature", "seed", "tools", "prompt", "context"
+    ],
+    "compare_models_separately": true,
+    "compare_reasoning_effort_separately": true,
+    "never_attribute_model_changes_to_skill_profile": true
+  }
+}

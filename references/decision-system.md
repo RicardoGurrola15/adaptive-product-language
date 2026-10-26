@@ -2,25 +2,42 @@
 
 Use this operational contract. Prefer the shortest correct answer; expand only when evidence or risk requires it.
 
-## Modes
+## Routes and modes
+
+The `compose` route coordinates copy for a new or existing screen, component, form, flow, or marketing section. It is a routing instruction, not a fifth output mode: report `mode: point` for a named new surface, `mode: audit` for an existing multi-surface review, and `mode: remediation` only after explicit bounded authorization.
 
 | Mode | Default behavior | Required boundary |
 |---|---|---|
-| point | Generate or review a named string, component, or flow. | Do not audit unrelated surfaces. |
+| point | Generate or review a named string, component, screen, or flow. | Do not audit unrelated surfaces. |
 | audit | Discover and report copy issues across the requested project surface. | Read-only unless remediation is explicitly authorized. |
 | remediation | Apply approved findings. | Bounded paths/findings only; no behavior, legal, product, or pricing decisions. |
 
-Select the first applicable mode: explicit remediation authorization, then multi-surface/project-wide audit, then named string/component/flow point work. Ask one blocking question if none applies.
+Select the first applicable route/mode: explicit remediation authorization, then an existing multi-surface audit, then a named string/surface point request. Use `compose` inside the selected mode when coordinated copy is requested. Ask one blocking question if no mode or authoritative requirement can be inferred.
+
+## Output tiers
+
+Use **copy-only** output for normal compose work: return only the requested visible copy, organized by the named surface sections. Do not emit a summary, diagnosis, rationale, assumptions, findings, project context, profile, or telemetry. Use **compact** output for normal non-compose point work. Use **formal** output for audit, remediation, localization/context reports, or an explicit formal request: begin with a 2–5 sentence human summary, then emit exactly the 14-key object below and preserve the exact 12-key finding schema. Human summaries and prose values MUST use the requested or inferred locale; fixed schema keys and route identifiers may remain English. In particular, `es-419` must never receive an English human summary. The tier changes presentation only; it never relaxes evidence, authorization, or risk gates.
+
+## Automatic profile selection
+
+Profile selection is separate from mode. Honor an explicit profile or `modo ligero`, `modo balanceado`, or `modo rendimiento`. Otherwise select `performance` only when the user requests depth/validation, the work spans related flows, or the risk gate is high; select `light` for one named low-risk local surface; select `balanced` for all other requests. Once selected, do not silently upgrade or downgrade. Declare `project_context.execution_profile`.
 
 ## Decision gates
 
-1. **Discovery gate:** classify mode, surface, flow, locale, channel, risk, and claims; follow the risk budget, ledger, and stop conditions in [context discovery](context-discovery.md).
+1. **Discovery gate:** classify mode/route, surface, flow, locale, channel, audience, behavior, risk, and material claims; follow the profile budget, cache, ledger, and stop conditions in [context discovery](context-discovery.md).
 2. **Context gate:** discover only relevant sources, stage evidence, conflicts, and confidence; apply precedence: explicit user decision > official product source > verified behavior > project docs > existing copy > inference.
-3. **Risk gate:** low local microcopy may use local evidence; medium requires flow/locale/claim reconciliation; high pricing/paywalls/security/privacy/commercial/legal/trust requires declared or verified material context.
+3. **Risk gate:** low local microcopy may use local evidence; medium requires flow/locale/claim reconciliation; high pricing/paywalls/security/privacy/commercial/legal/trust/account-access copy requires declared or verified material context.
 4. **Truth and quality gates:** preserve variables, prices, limits, dates, permissions, and behavior; unknown truth is blocked; run all eight checks in [language-quality.md](language-quality.md).
-5. **Scope and delivery gates:** distinguish defects from optional improvements, preserve intentional copy, and stop for behavior, legal, pricing, consent, accessibility, or policy decisions.
+5. **Composition gate:** for compose, map each proposed string to a visible surface element and evidenced state/transition. Do not add recovery, loading, entitlement, or success claims unless behavior is declared or verified.
+6. **Scope and delivery gates:** distinguish defects from optional improvements, preserve intentional copy, and stop for behavior, legal, pricing, consent, accessibility, or policy decisions.
 
 For a blocked high-risk request, return an incomplete-context diagnosis and do not invent claims.
+
+## Cache and ledger contract
+
+Context discovery may reuse a cached fragment only when the normalized query, scope, locale/risk classification, and content hash of every consulted source match. Record cache hits in `discovery_ledger.consulted` or `queries` with `cache: reused` and the source hash; do not reread unchanged fragments merely to restate them. Invalidate the entry when a source hash, requested scope, locale, risk, user instruction, or authoritative precedence changes, or when the user requests a fresh audit. Record invalidation reason and the replacement hash in `discovery_ledger.expansions`.
+
+A cache is an efficiency aid, not evidence: preserve source status and confidence, and never reuse a stale or conflicted high-risk claim. A run ledger should identify consulted sources, grouped exclusions, query hashes, cache decisions, and any expansion beyond the initial budget.
 
 ## Priority
 
@@ -54,9 +71,7 @@ Allowed priorities: urgent, necessary, recommended, optional. Allowed categories
 
 ## Structured output contract
 
-First present a 2–5 sentence human summary. Explain what the result means for the product and the actionable diagnosis before citing paths or lines; use those only as evidence. Do not emit the complete YAML object unless the user asks or an integration needs it.
-
-The structured result remains one object with exactly these 14 top-level keys:
+First present a 2–5 sentence human summary. The structured result remains one object with exactly these 14 top-level keys:
 
 ```yaml
 mode: point
@@ -86,6 +101,7 @@ project_context:
   conflicts: []
   assumptions: []
   confidence: 0.7
+  execution_profile: balanced
   discovery_ledger:
     consulted: []
     queries: []
@@ -97,4 +113,4 @@ project_context:
 
 ## Locale and tone declaration
 
-Always state whether language and locale were requested, inferred, or defaulted. Keep locale, tone, register, intent, and channel separate; translation is not a tone decision.
+Always state whether language and locale were requested, inferred, or defaulted. Keep locale, tone, register, intent, audience, and channel separate; translation is not a tone decision.

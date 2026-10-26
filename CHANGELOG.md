@@ -1,8 +1,55 @@
+## [Unreleased]
+
+### Documentation
+
+- Added community-facing installation, host-portability, quick-start, contribution, testing, and preliminary-observation documentation.
+- Clarified that these documents report process signals and documentation changes only; they do not claim runtime behavior changes or benchmark proof.
+
+## [0.8.0] - 2026-10-25
+
+### Added
+
+- Added explicit activation boundaries for UI screens, components, forms, flows, marketing, login screens, compose routing, and visual-only exclusion.
+- Added profile auto-selection, concrete budgets, content-hash cache reuse/invalidation, and ledger requirements while preserving source precedence and high-risk gates.
+- Added a 12-case × 3-repetition pilot protocol, resumable benchmark checkpoints, observed-telemetry-only runner records, paired aggregation, blind evaluator completeness/range/agreement checks, and hybrid quality/efficiency/coverage/diagnostic reporting.
+- Strengthened 30 basic fixtures with behavior, surface, invariants, findings, 10 UI-composition cases, and three positive controls; added standard-library contract tests.
+
+### Changed
+
+- Preserved the exact 14-key structured output contract and exact 12-key finding schema.
+- Benchmark quality is never inferred by the runner; missing telemetry and scores remain null or explicitly unavailable.
+
+## [0.6.0] - 2026-10-25
+
+### Added
+
+- Added 30 text-only basic synthetic benchmark environments with portable generation and structural validation.
+- Added separate basic-results guidance to keep model outputs distinct from fixture integrity checks.
+
+## [0.5.1] - 2026-10-25
+
+### Added
+
+- Added optional read-only project-environment benchmark registry and environment-aware aggregation while preserving paired fixture comparisons.
+
 ## 2026-10-25
 
 - Added portable paired quality and profile-cost benchmark fixtures and aggregator.
 
 # Changelog
+
+## [0.7.0] - 2026-10-25
+
+### Added
+
+- Added Codex/Gemini provider run planning with fixed-control guidance and provider-separated aggregation.
+
+## [0.6.1] - 2026-10-25
+
+### Changed
+
+- Diversified the 30 basic synthetic environments across distinct product types, audiences, channels, and business models.
+- Added model reasoning-effort and service-tier controls to the benchmark protocol.
 
 All notable changes to Adaptive Product Language are documented here.
 

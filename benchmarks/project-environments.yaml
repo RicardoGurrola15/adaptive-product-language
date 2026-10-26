@@ -1,0 +1,45 @@
+# Optional local fixtures for read-only project-environment benchmark runs.
+# Paths are examples only; verify each checkout before use.
+environments:
+  - id: casamapa
+    path: /Volumes/intento1/Repos/casamapa
+    description: Consumer property-listing and map-oriented product with bilingual user-facing flows.
+    suggested_scenarios:
+      - Audit listing discovery, map, and empty-state language for clarity and actionability.
+      - Compare Spanish and English account, publishing, and promotion copy.
+    initial_evidence_files:
+      - AGENTS.md
+      - README.md
+      - src/locales/es.json
+      - src/locales/en.json
+    caution: Verify current repository state and never treat guesses as facts.
+  - id: noura
+    path: /Volumes/intento1/Repos/noura
+    description: Noura product repository; inspect its current product surface and language context before auditing.
+    suggested_scenarios:
+      - Audit one named onboarding or core-task flow using only current local evidence.
+      - Check terminology consistency across the selected user journey.
+    initial_evidence_files:
+      - README.md
+      - AGENTS.md
+    caution: Verify current repository state and never treat guesses as facts.
+  - id: fenix
+    path: /Volumes/intento1/Repos/Fenix
+    description: Fenix wellbeing product repository with user-facing mobile and web surfaces.
+    suggested_scenarios:
+      - Audit a bounded wellbeing flow for clarity, tone, and safety-sensitive wording.
+      - Compare locale terminology within one selected journey.
+    initial_evidence_files:
+      - README.md
+      - AGENTS.md
+    caution: Verify current repository state and never treat guesses as facts.
+  - id: futkards
+    path: /Volumes/intento1/Repos/futkards
+    description: Futkards product repository; inspect its current domain and user-facing language before selecting a scenario.
+    suggested_scenarios:
+      - Audit one discovery, collection, or account flow using a pinned checkout.
+      - Review action labels and feedback states for consistency and transparency.
+    initial_evidence_files:
+      - README.md
+      - AGENTS.md
+    caution: Verify current repository state and never treat guesses as facts.

@@ -1,102 +1,93 @@
 # Adaptive Product Language
 
-Adaptive Product Language generates, reviews, audits, and explicitly remediates user-facing copy as product behavior. It investigates only enough context for the risk, then explains the product impact in plain language before returning structured data.
+Adaptive Product Language routes contextual product-language work for UI screens, components, forms, flows, marketing, and explicit login/account requests. It excludes visual-only styling and loads only the references needed for the selected intent.
 
-## Quick path
+It is an Agent Skills-compatible Markdown package: the repository is usable as a standalone checkout, and the skill can be copied into a host's project-local skill directory.
 
-1. Start with the named surface or flow; do not ask the skill to read the whole repository by default.
-2. It inventories candidates, searches targeted hypotheses, and reads only relevant fragments.
-3. It stops when evidence is sufficient, or blocks high-risk claims without authoritative evidence.
-4. Audit/remediation output includes a compact discovery ledger; the response starts with a human summary, not a YAML dump.
+## Quick start
+
+1. Install the package using one of the paths below.
+2. Invoke `adaptive-product-language` for a language task.
+3. Name the surface, user action, locale, and intent: `compose`, `improve`, `audit`, `remediate`, `localize`, or `context`.
+4. Provide the verified product context or identify what is unknown. The skill will investigate only enough evidence for the selected risk.
+
+Example:
+
+> Compose a Spanish CTA for saving search filters. Preserve the verified behavior and do not imply that matching results already exist.
 
 ## Installation
 
-### Project-local
+### Standalone repository
+
+The repository root is itself a valid skill package. Point a host that supports standalone Agent Skills to the checkout's root [`SKILL.md`](SKILL.md). Keep the `references/` and `assets/` directories beside it because the skill uses relative links.
+
+```bash
+git clone https://github.com/RicardoGurrola15/adaptive-product-language.git
+cd adaptive-product-language
+# Configure the host to discover this directory, or load ./SKILL.md explicitly.
+```
+
+### Project-local installation
+
+For a project-local install, copy the package into `.agents/skills/adaptive-product-language/` so that the destination contains `SKILL.md`, `references/`, and `assets/`:
 
 ```bash
 mkdir -p .agents/skills
-git clone https://github.com/RicardoGurrola15/adaptive-product-language.git .agents/skills/adaptive-product-language
+git clone https://github.com/RicardoGurrola15/adaptive-product-language.git \
+  .agents/skills/adaptive-product-language
 ```
 
-### Global
+If the repository is already checked out elsewhere, copy the repository contents into that same destination rather than copying only `SKILL.md`.
 
-```bash
-mkdir -p ~/.codex/skills
-git clone https://github.com/RicardoGurrola15/adaptive-product-language.git ~/.codex/skills/adaptive-product-language
-```
+## Host portability
 
-The package has no private API, framework, runtime, external tool, or model-provider dependency.
+The core package is plain Markdown plus local references and is intended for Codex, Claude, Gemini CLI, and other Agent Skills-compatible or Markdown-capable hosts. Discovery and invocation syntax are host-specific:
 
-## Distribution
+- **Codex:** install in a configured skills directory or project-local `.agents/skills/`; [`agents/openai.yaml`](agents/openai.yaml) is optional Codex/OpenAI metadata.
+- **Claude:** place the package where the host discovers skills, or load the root `SKILL.md` explicitly with its sibling references.
+- **Gemini CLI:** place it in the host's supported skills directory or invoke the root `SKILL.md` explicitly.
+- **Other agents:** use any supported Agent Skills directory; otherwise provide `SKILL.md` and preserve its relative `references/` and `assets/` paths.
 
-Official repository: <https://github.com/RicardoGurrola15/adaptive-product-language>
+The package has no runtime, private API, MCP, framework, or model-provider dependency. GitHub is distribution; it is not a universal installer.
 
-To install from GitHub, clone or download this repository and copy its root directory into your local skills directory (for example, `~/.codex/skills/adaptive-product-language`). For a local checkout, copy this package directory into the same destination. Invoke it explicitly as `adaptive-product-language`.
+## Normal modes
 
-This package requires no private APIs or dependencies.
-
-## Portability
-
-This is a portable, platform-neutral Agent Skills package usable by Codex, Claude, Gemini CLI, and other agents or hosts that support the Agent Skills convention or can load Markdown instructions. The package core is `SKILL.md` plus its references, assets, and evals; `agents/openai.yaml` is optional Codex/OpenAI metadata. Installation and discovery are host-specific, and GitHub provides distribution rather than a universal installer. There are no private APIs, MCP, proprietary tools, runtime dependencies, or model dependencies. If a host has no automatic discovery, load the package manually and explicitly invoke `adaptive-product-language`.
-
-## Execution profiles
-
-Profiles are independent of operation mode (`point`, `audit`, `remediation`). Unspecified requests use **balanced** and report `execution_profile: balanced` inside `project_context`. “Performance” means depth/quality, not speed.
-
-| Profile | Practical boundary |
+| Intent | Behavior |
 |---|---|
-| `light` | Lowest cost: local evidence, 1–2 files, one focused search; no broad inventory or subagent by default. |
-| `balanced` (default) | Progressive budgets and one bounded sequential agent only when broader exploration or multi-file writing justifies it. |
-| `performance` | Broader relevant evidence and cross-flow consistency; independent verifier only for high-risk, conflict, or requested validation. Never unbounded or repository-wide by default. |
+| `compose` | Generate only the requested visible copy, using evidenced states and declared context. |
+| `improve` | Review or improve existing copy; do not edit files unless remediation is explicitly bounded. |
+| `audit` | Read-only inspection of language quality, drift, unsupported claims, and context gaps. |
+| `remediate` | Apply only explicitly named findings and paths; preserve behavior, pricing, legal meaning, and unrelated copy. |
+| `localize` | Adapt language while preserving product facts, behavior, and locale meaning. |
+| `context` | Establish or reconcile product-language context without inventing facts. |
 
-Recognize “modo ligero”, “modo balanceado”, and “modo rendimiento”. Never silently upgrade the selected profile; high-risk gates still apply. Details: [execution profiles](references/execution-profiles.md).
+Execution depth is separate from intent. Use `light`, `balanced` (default), or `performance`; these profiles control investigation depth, not model reasoning or guaranteed speed.
 
-## Efficient investigation
+## Context file
 
-| Request | Initial budget | Escalate only when |
-|---|---|---|
-| Point / low risk | 1–3 files, 1 targeted search | A contradiction, material claim, real dependency, or explicit request appears. |
-| Medium risk | Up to 5 candidates, 3 queries, 3 fragments | Flow, locale/glossary, or claim evidence needs reconciliation. |
-| High risk / audit | Inventory first, up to 5 initial queries | A material claim needs declared or verified evidence. |
+For a project with durable product facts, use `.product-language/context.yaml` as the authoritative context location. Start from [`assets/context-template.yaml`](assets/context-template.yaml), then declare only verified product, audience, behavior, pricing, trust, locale, terminology, and policy information. The template is a proposal: the skill must not create or treat it as truth without project evidence.
 
-An explicit request for all documentation is honored and recorded as an expansion. By default, 1–3 files use no subagent; broader exploration uses one sequential bounded explorer, multi-file writing one writer, and a second verifier only for high risk, authoritative conflict, or requested validation.
+## Audit and remediation
 
-## Context initialization and audit
+Audits are read-only. The skill inventories relevant candidates, searches targeted evidence, records what it consulted, and stops when evidence is sufficient. It blocks or reports unsupported product, pricing, legal, consent, or behavior claims instead of guessing.
 
-```text
-Bootstrap product-language context for this new project. Use the template as a proposal only; do not create .product-language/context.yaml. Record declared facts, unknowns, sources, and confidence.
-```
-
-```text
-Reconcile product-language context for this checkout flow. Use progressive discovery, report consulted evidence and grouped exclusions, and do not edit files.
-```
-
-```text
-Run a read-only context drift audit for the pricing journey. Compare only relevant copy with context, verified behavior, pricing/policy sources, and locales; return a blocked diagnosis if a material claim lacks evidence.
-```
-
-## Invocation examples
-
-### Point generation
-
-> Generate a primary CTA and secondary action for a listing form. Infer the Spanish locale, declare the assumption, and use only verified local behavior.
-
-### High-risk review
-
-> Review this paywall. If declared or verified pricing, cadence, eligibility, and renewal context is absent, return an incomplete-context diagnosis instead of rewriting claims.
-
-### Bounded remediation
-
-> Apply only necessary copy fixes from findings PL-004 and PL-009. Do not change behavior, pricing, legal meaning, or unrelated files. Report changed paths and validation.
-
-## Validation
-
-Check frontmatter, required markers, local links, and YAML under `agents/` and `evals/`. Confirm the exact 14-key output contract, unchanged 12-key finding schema, progressive budgets, ledger, stop conditions, sequential-agent policy, source precedence, and Context Gate cases in [context-fixtures.yaml](evals/context-fixtures.yaml).
+Remediation is opt-in and bounded. Name the findings and paths to change; the skill must preserve behavior and unrelated files, then report changed paths and validation. Normal compose requests return visible copy only. Audit, remediation, localization/context, or an explicit formal request returns the structured report contract documented in [`references/decision-system.md`](references/decision-system.md).
 
 ## Limitations
 
-The skill cannot infer authoritative product policy, legal requirements, pricing truth, runtime behavior, or accessibility conformance from copy alone. It must stop and escalate rather than guess.
+The skill cannot establish authoritative product policy, legal requirements, pricing truth, runtime behavior, accessibility conformance, or user research findings from copy alone. It cannot replace product, legal, localization, accessibility, or engineering review. When evidence is missing or conflicting, expect an assumption, an incomplete-context result, or a request for authoritative sources rather than an invented claim.
 
-## Benchmark
+## Validation and benchmark caveat
 
-See [benchmarks/README.md](benchmarks/README.md).
+Run focused local checks without making model calls:
+
+```bash
+python3 -m py_compile benchmarks/*.py
+python3 -m unittest discover -s benchmarks -p 'test_*.py'
+```
+
+Do not run a real model benchmark as ordinary validation. Benchmark outputs require a fixed paired protocol, blinded quality evaluation, and observed telemetry. Text length or byte differences alone are not quality evidence. See [`benchmarks/README.md`](benchmarks/README.md), the [community testing protocol](docs/community-testing.md), and the [preliminary observations](docs/benchmark-results.md).
+
+## Contributing
+
+Start with [`CONTRIBUTING.md`](CONTRIBUTING.md). Report a failure with the smallest reproducible prompt and context, propose privacy-safe fixtures, and separate quality observations from efficiency measurements. See the [issue tracker](https://github.com/RicardoGurrola15/adaptive-product-language/issues) and [pull requests](https://github.com/RicardoGurrola15/adaptive-product-language/pulls).

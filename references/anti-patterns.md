@@ -1,5 +1,7 @@
 # Anti-patterns
 
+These are contextual warning signals, not a blacklist or mandatory-vocabulary inverse. Inspect the product task, audience, risk, locale, and evidence before changing any phrase.
+
 Reject these approaches even when they sound polished:
 
 - **Generic fluency:** rewriting without checking the action, state, audience, or product truth.

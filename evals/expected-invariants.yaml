@@ -1,4 +1,4 @@
-version: "0.5.0"
+version: "0.8.0"
 kind: expected-invariants
 required_audit_cases:
   - partial-project
@@ -69,5 +69,11 @@ invariants:
   - "Existing glossaries and guides are reused instead of duplicated."
   - "No framework, private API, external tool, or model-training assumption is required."
 
-- id: benchmark baseline/profile separation
-  requirement: Benchmark baseline quality is compared separately from light, balanced, and performance telemetry; text difference alone cannot establish quality.
+  - "Benchmark baseline quality is compared separately from light, balanced, and performance telemetry; text difference alone cannot establish quality."
+  - "Provider comparisons keep model controls fixed within a provider and aggregate provider results separately."
+  - "Compose is a route, not a new output mode; normal compose returns visible copy only while formal audit, remediation, localization/context reports preserve the exact 14-key contract."
+  - "Explicit login-screen, registration, and recovery requests activate the skill; visual-only styling requests do not."
+  - "Benchmark records preserve pair_id/replicate_id pairing; quality scores are evaluator-supplied, and missing telemetry remains null or unavailable."
+  - "Blind evaluator packets omit condition/provider/profile labels; incomplete, out-of-range, duplicate, or evidence-free score rows are rejected."
+  - "Evaluator agreement is reported only with at least two complete evaluators; no score or agreement is invented."
+  - "The standard-library basic fixture suite contains exactly 30 scenarios, at least 8 UI-composition fixtures, and at least 3 positive controls; every fixture declares context, audience, surface, locale, risk, behavior, constraints, invariants, and findings."

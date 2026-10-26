@@ -1,11 +1,15 @@
 {
   "case_id": "example",
   "condition": "baseline",
-  "run_id": "example-001",
+  "pair_id": "example-rep-01",
+  "replicate_id": 1,
+  "run_id": "example-baseline-rep-01",
   "model": {
     "name": "model-name",
     "provider": "provider",
     "version": null,
+    "reasoning_effort": null,
+    "service_tier": null,
     "temperature": null,
     "seed": null
   },
@@ -15,28 +19,67 @@
     "condition_order": null
   },
   "output": "",
-  "quality_scores": {
-    "semantic_accuracy": null,
-    "product_context_fit": null,
-    "clarity_actionability": null,
-    "language_locale_quality": null,
-    "tone_register": null,
-    "consistency": null,
-    "transparency_anti_manipulation": null,
-    "audit_detection": null
-  },
+  "expected_findings": [],
   "expected_findings_found": [],
+  "coverage": null,
+  "quality_scores": {
+    "completeness": null,
+    "context_fit": null,
+    "specificity": null,
+    "coherence": null,
+    "naturalness_non_robotic_rhythm": null,
+    "commercial_congruence": null,
+    "cta_clarity": null,
+    "locale_quality": null,
+    "claims_boundary": null
+  },
   "telemetry": {
     "input_tokens": null,
     "output_tokens": null,
     "elapsed_ms": null,
     "tool_calls": null,
-    "files_read": null
+    "stage_timings": null,
+    "candidate_files": null,
+    "files_read": null,
+    "references": 0,
+    "searches": null,
+    "context_bytes": 0,
+    "escalations": null,
+    "cache_hit": null,
+    "cache_miss": null,
+    "profile": null,
+    "stop_reason": null,
+    "interruptions": null,
+    "changed_text_count": null,
+    "preserved_text_count": null,
+    "observed": false,
+    "cached_input_tokens": null,
+    "reasoning_output_tokens": null
   },
   "evaluator": {
     "evaluator_id": "",
     "blind": true,
     "scored_at": "",
-    "notes": ""
+    "notes": "",
+    "completeness": null,
+    "range_valid": null,
+    "agreement": null
+  },
+  "diagnostics": [],
+  "project_environment": {
+    "id": "environment-id",
+    "revision": "git-revision",
+    "scope": "named read-only scope"
+  },
+  "rubric_applicability": {
+    "completeness": true,
+    "context_fit": true,
+    "specificity": true,
+    "coherence": true,
+    "naturalness_non_robotic_rhythm": true,
+    "commercial_congruence": true,
+    "cta_clarity": true,
+    "locale_quality": true,
+    "claims_boundary": true
   }
 }

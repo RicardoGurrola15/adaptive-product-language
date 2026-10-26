@@ -1,44 +1,219 @@
 cases:
 - case_id: es419_cta
+  scenario: cta
   locale: es-419
   title: Save-search CTA
-  context: A real-estate search screen lets a visitor save filters; do not imply guaranteed results.
-  prompt: Rewrite the primary CTA and one supporting line for clarity and actionability.
+  context: A real-estate search screen lets a visitor save filters; the action stores a search for later use and does not guarantee matching results.
+  audience: Renters comparing listings in Latin America
+  surface: search screen > save-search button and helper text
+  behavior: The primary action saves filters; no result or pricing promise is made.
+  prompt: Compose the primary CTA and one supporting line for clarity and actionability.
   expected_constraints: [natural es-419, no invented promise, return CTA and supporting line]
+  expected_findings: [clarity]
+  positive_control: false
+  composition: false
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
   conditions: [baseline, light, balanced, performance]
-- case_id: enus_onboarding
+- case_id: enus_login_screen
+  scenario: login
   locale: en-US
-  title: First-listing onboarding
-  context: A new seller has not completed a listing and may be unsure what is required.
-  prompt: Write a three-step onboarding sequence with one action per step.
-  expected_constraints: [plain US English, concrete actions, no invented documents or fees]
+  title: Login-screen composition
+  context: An online learning platform supports email/password login and password recovery; social login is unavailable.
+  audience: Adult learners returning to online courses
+  surface: login screen > heading, fields, primary action, recovery link, error state
+  behavior: A valid email/password submits to login; the recovery link starts password recovery; failed login does not create an account.
+  prompt: Compose the login screen copy for idle, validation, and recovery states without adding authentication methods.
+  expected_constraints: [plain US English, explicit recovery action, no social-login claim, state-aware labels]
+  expected_findings: [composition, clarity, behavior-boundary]
+  positive_control: false
+  composition: true
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
+  conditions: [baseline, light, balanced, performance]
+- case_id: es419_form_composition
+  scenario: form
+  locale: es-419
+  title: Availability-request form
+  context: A local service form collects date, contact method, and request details; submission requests an estimate and does not confirm an appointment.
+  audience: People requesting a local service estimate
+  surface: form screen > fields, helper text, submit action, submitted state
+  behavior: Submit sends a request for review; no appointment slot is reserved.
+  prompt: Compose the form labels, helper text, submit CTA, and submitted-state message.
+  expected_constraints: [natural es-419, do not imply booking, one action per state, preserve fields]
+  expected_findings: [composition, clarity, transparency]
+  positive_control: false
+  composition: true
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
+  conditions: [baseline, light, balanced, performance]
+- case_id: enus_checkout
+  scenario: checkout
+  locale: en-US
+  title: Payment-step boundary
+  context: A ticket checkout collects attendee details before attempting payment; an order is complete only after payment succeeds.
+  audience: People buying tickets for local events
+  surface: checkout screen > step labels, payment CTA, pending and success states
+  behavior: Payment is pending until the provider confirms success; leaving the page does not establish purchase.
+  prompt: Compose step labels and confirmation language without implying payment success early.
+  expected_constraints: [plain US English, no premature confirmation, distinguish pending from success]
+  expected_findings: [composition, semantic-risk]
+  positive_control: false
+  composition: true
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
   conditions: [baseline, light, balanced, performance]
 - case_id: es419_error_recovery
+  scenario: error-recovery
   locale: es-419
   title: Upload recovery
   context: A listing photo upload failed temporarily; retry is safe and unsaved text remains.
-  prompt: Write error title, explanation, retry CTA, and fallback action.
+  audience: Sellers publishing property listings
+  surface: upload form > error banner, retry CTA, fallback action
+  behavior: Retry repeats the upload; the draft text remains available; no upload success is implied.
+  prompt: Compose error title, explanation, retry CTA, and fallback action.
   expected_constraints: [state what happened, state what is preserved, safe retry and fallback, no blame]
+  expected_findings: [recovery, clarity]
+  positive_control: false
+  composition: true
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
   conditions: [baseline, light, balanced, performance]
 - case_id: enus_paywall
+  scenario: paywall
   locale: en-US
   title: Pricing transparency
-  context: A paid promotion feature exists, but this prompt provides no price or renewal terms.
+  context: A paid promotion feature exists, but this prompt provides no price, renewal cadence, or trial terms.
+  audience: Small businesses considering a promotion feature
+  surface: paywall > benefit summary, price area, purchase and decline actions
+  behavior: The purchase action may start a paid flow; price and renewal terms are unknown here.
   prompt: Draft a transparent paywall message and CTA using only supplied facts.
-  expected_constraints: [no invented price or terms, disclose unknowns, no urgency]
+  expected_constraints: [no invented price or terms, disclose unknowns, no urgency, clear decline action]
+  expected_findings: [unsupported-claim, transparency, anti-dark-pattern]
+  positive_control: false
+  composition: true
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
   conditions: [baseline, light, balanced, performance]
 - case_id: es419_localization
+  scenario: localization
   locale: es-419
-  title: Localization review
+  title: Terminology localization
   context: Source says List your property for Latin America and uses apartment inconsistently with property.
+  audience: Property owners listing homes in Latin America
+  surface: listing flow > heading, field labels, terminology
+  behavior: The flow creates a property listing; the fixture does not define a narrower property type.
   prompt: Propose localized copy and identify terminology decisions.
-  expected_constraints: [natural es-419, preserve meaning, distinguish property and apartment]
+  expected_constraints: [natural es-419, preserve meaning, distinguish property and apartment, no unsupported property type]
+  expected_findings: [localization, terminology]
+  positive_control: false
+  composition: false
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
   conditions: [baseline, light, balanced, performance]
 - case_id: enus_audit
+  scenario: audit
   locale: en-US
   title: Read-only copy audit
   context: Screen says You are almost done, pay now to unlock your guaranteed offer, only 2 spots left, cancel anytime; no price, offer definition, or inventory evidence is provided.
+  audience: Visitors evaluating a paid offer
+  surface: paywall screen > headline, claim, scarcity message, CTA, cancellation line
+  behavior: The fixture gives no evidence for the offer, scarcity, price, or cancellation policy.
   prompt: Perform a read-only audit with issues, severity, evidence, and safer next steps; do not rewrite.
-  expected_findings: [unsupported guarantee, unsupported scarcity, missing price or offer details, cancellation claim needs verification, manipulative urgency]
   expected_constraints: [audit only, separate observed text from unverified claims, detect expected findings]
+  expected_findings: [unsupported guarantee, unsupported scarcity, missing price, cancellation verification, manipulative urgency]
+  positive_control: false
+  composition: true
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
   conditions: [baseline, light, balanced, performance]
+- case_id: es419_positive_loading
+  scenario: loading
+  locale: es-419
+  title: Accurate loading state
+  context: A video collection is loading and no playback error or duration estimate exists.
+  audience: Viewers opening a curated video collection
+  surface: collection screen > loading indicator and status text
+  behavior: Content is loading; no duration is known and no action is required.
+  prompt: Review the loading state and return no change when the existing concise copy is accurate.
+  expected_constraints: [natural es-419, preserve accurate copy, no invented duration]
+  expected_findings: []
+  positive_control: true
+  composition: false
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
+  conditions: [baseline, light, balanced, performance]
+- case_id: enus_positive_success
+  scenario: success
+  locale: en-US
+  title: Accurate success state
+  context: A donation form submitted successfully and exposes a receipt link; no tax-deductibility claim is supplied.
+  audience: Donors supporting a community nonprofit
+  surface: success screen > confirmation, receipt link
+  behavior: Submission succeeded and the receipt link opens the receipt.
+  prompt: Review the success message and return no change when the existing confirmation is accurate.
+  expected_constraints: [plain US English, preserve receipt behavior, no legal claim]
+  expected_findings: []
+  positive_control: true
+  composition: true
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
+  conditions: [baseline, light, balanced, performance]
+- case_id: es419_marketing
+  scenario: marketing
+  locale: es-419
+  title: Promotion without false urgency
+  context: A newsletter signup asks for an email and says readers can unsubscribe later; no discount or deadline is provided.
+  audience: Readers subscribing to a local news newsletter
+  surface: marketing signup > value proposition, consent line, submit CTA
+  behavior: Submit subscribes the email; unsubscribe is available later; no offer expiry exists in the fixture.
+  prompt: Compose promotional copy that states value without false urgency or guaranteed outcomes.
+  expected_constraints: [natural es-419, no invented discount, clear consent, no scarcity]
+  expected_findings: [unsupported-promotion, transparency]
+  positive_control: false
+  composition: true
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
+  conditions: [baseline, light, balanced, performance]
+- case_id: enus_permissions
+  scenario: permissions
+  locale: en-US
+  title: Camera permission boundary
+  context: A document-scanning app requests camera permission only when a scan starts; denying it leaves the user on the scan screen.
+  audience: People scanning documents on mobile
+  surface: scan screen > permission rationale, system prompt lead-in, denial fallback
+  behavior: Camera is needed to scan; denial keeps the user on the scan screen and does not block unrelated app areas.
+  prompt: Compose permission rationale and fallback copy that explains the next step.
+  expected_constraints: [plain US English, request only camera access, explain denial path, no broad access claim]
+  expected_findings: [permission-scope, recovery, clarity]
+  positive_control: false
+  composition: true
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
+  conditions: [baseline, light, balanced, performance]
+
+- case_id: es419_contextual_phone_landing
+  scenario: marketing
+  locale: es-419
+  title: México phone landing composition
+  context: Producto: tienda en línea mexicana de teléfonos reacondicionados con modelos, capacidad, grado estético, garantía de 90 días y envíos nacionales. Audiencia: personas que comparan un teléfono confiable sin pagar precio de estreno. Propuesta: elegir un equipo reacondicionado con especificaciones claras. Objetivo: llevar a comparar modelos y seleccionar un equipo. Claims permitidos: garantía de 90 días, envíos nacionales, capacidad, grado estético y condición reacondicionada. Claims prohibidos: precios, descuentos, inventario, entrega en fecha, batería nueva, certificación, rendimiento garantizado o ahorro garantizado.
+  audience: Personas en México que comparan teléfonos reacondicionados antes de comprar
+  surface: landing completa > hero, beneficios, confianza, catálogo/especificaciones, FAQ y CTA
+  behavior: El CTA principal abre la comparación de modelos; el catálogo muestra modelos, capacidad y grado estético; la compra, el inventario, los precios y las fechas de entrega no están declarados.
+  prompt: Redacta solo contenido textual estructurado para una landing completa; no propongas UI, layout, estilos ni componentes. Incluye hero, beneficios, confianza, catálogo/especificaciones, FAQ y CTA.
+  expected_constraints: [es-419 México natural, contenido textual estructurado sin UI, cubre hero beneficios confianza catálogo-especificaciones FAQ CTA, propuesta coherente entre secciones, CTA para comparar modelos, solo claims permitidos]
+  expected_findings: [composition, contextual-adaptation, unsupported-claim-boundary]
+  positive_control: false
+  composition: true
+  copy_only: true
+  visible_sections: [Hero, Beneficios, Confianza, Catálogo y especificaciones, FAQ, CTA]
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
+  conditions: [baseline, light, balanced, performance]
+  invariants: [identifica producto audiencia dominio superficie objetivo riesgo locale y etapa de comparación, diferencia reacondicionado de nuevo sin prometer batería o certificación, mantiene garantía de 90 días y envíos nacionales sin ampliar sus condiciones, usa solo claims permitidos, no inventa precios descuentos inventario ni entregas, mantiene propuesta y CTA de comparar modelos entre secciones, entrega solo contenido textual estructurado sin UI]
+
+- case_id: enUS_contextual_saas_landing
+  scenario: marketing
+  locale: en-US
+  title: Contextual SaaS landing composition
+  context: Product: a SaaS workspace that helps revenue-operations teams standardize lead-routing rules across regional sales teams. Audience: revenue-operations leaders reducing manual routing reviews. Objective: explain the workflow and invite a product walkthrough. Allowed claims: configurable routing rules, regional rule visibility, approval history, and guided walkthroughs. Prohibited claims: automatic revenue growth, CRM integrations, uptime, security certification, implementation time, pricing, free trial, or guaranteed compliance.
+  audience: Revenue-operations leaders coordinating lead-routing rules across regions
+  surface: full landing page > hero, benefits, trust, features, FAQ, CTA
+  behavior: The primary CTA requests a guided product walkthrough; features describe configurable routing rules, regional visibility, and approval history only.
+  prompt: Compose only structured visible copy for a full SaaS landing page; do not propose UI, layout, styles, components, diagnosis, rationale, or report metadata. Include hero, benefits, trust, features, FAQ, and CTA.
+  expected_constraints: [natural en-US, structured visible copy only, cover hero benefits trust features FAQ CTA, coherent proposition across sections, CTA requests a guided walkthrough, only allowed claims]
+  expected_findings: [composition, contextual-adaptation, unsupported-claim-boundary]
+  positive_control: false
+  composition: true
+  copy_only: true
+  visible_sections: [Hero, Benefits, Trust, Features, FAQ, CTA]
+  rubric_applicability: {"completeness": true,"context_fit": true,"specificity": true,"coherence": true,"naturalness_non_robotic_rhythm": true,"commercial_congruence": true,"cta_clarity": true,"locale_quality": true,"claims_boundary": true}
+  conditions: [baseline, light, balanced, performance]
+  invariants: [identifies product audience domain surface objective risk locale and setup-stage context, names lead-routing rules and regional sales teams without promising revenue growth, keeps configurable rules regional visibility and approval history within declared boundaries, does not invent integrations uptime security certification implementation time pricing free trial or compliance, maintains one walkthrough CTA across sections, returns only structured visible copy without UI or report metadata]
