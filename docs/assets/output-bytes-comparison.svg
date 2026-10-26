@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-labelledby="chart-title chart-desc">
+  <title id="chart-title">Validated paired UTF-8 output bytes by model</title>
+  <desc id="chart-desc">Two one-sample paired observations compare baseline and skill output sizes. Gemini 3.8 Flash: 2912 baseline bytes and 2663 skill bytes, 8.5 percent shorter. Claude Sonnet 4.6 Thinking: 3289 baseline bytes and 3034 skill bytes, 7.8 percent shorter. These are UTF-8 output bytes, not tokens or quality scores.</desc>
+  <rect width="900" height="500" fill="#ffffff"/>
+  <text x="56" y="48" font-family="system-ui, sans-serif" font-size="25" font-weight="700" fill="#172033">UTF-8 output bytes</text>
+  <text x="56" y="76" font-family="system-ui, sans-serif" font-size="15" fill="#42526b">Validated paired observations · one sample per model · not token savings or quality scores</text>
+
+  <line x1="120" y1="385" x2="840" y2="385" stroke="#26364d" stroke-width="2"/>
+  <line x1="120" y1="135" x2="120" y2="385" stroke="#26364d" stroke-width="2"/>
+  <g font-family="system-ui, sans-serif" font-size="12" fill="#42526b" text-anchor="end">
+    <text x="110" y="389">0</text><text x="110" y="326">1,000</text><text x="110" y="264">2,000</text><text x="110" y="201">3,000</text><text x="110" y="139">4,000</text>
+  </g>
+  <g stroke="#d9e1ec" stroke-width="1">
+    <line x1="120" y1="322.5" x2="840" y2="322.5"/><line x1="120" y1="260" x2="840" y2="260"/><line x1="120" y1="197.5" x2="840" y2="197.5"/><line x1="120" y1="135" x2="840" y2="135"/>
+  </g>
+  <text x="32" y="270" transform="rotate(-90 32 270)" font-family="system-ui, sans-serif" font-size="13" fill="#42526b">Bytes</text>
+
+  <g>
+    <rect x="205" y="203" width="92" height="182" rx="4" fill="#526581"/>
+    <rect x="307" y="218.6" width="92" height="166.4" rx="4" fill="#157a6e"/>
+    <text x="251" y="193" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#172033">2,912</text>
+    <text x="353" y="209" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#172033">2,663</text>
+    <text x="302" y="425" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#172033">Gemini 3.8 Flash</text>
+    <text x="302" y="448" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#157a6e">−8.5% skill output bytes</text>
+  </g>
+  <g>
+    <rect x="555" y="179.4" width="92" height="205.6" rx="4" fill="#526581"/>
+    <rect x="657" y="195.4" width="92" height="189.6" rx="4" fill="#157a6e"/>
+    <text x="601" y="169" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#172033">3,289</text>
+    <text x="703" y="185" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#172033">3,034</text>
+    <text x="652" y="425" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#172033">Claude Sonnet 4.6 Thinking</text>
+    <text x="652" y="448" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#157a6e">−7.8% skill output bytes</text>
+  </g>
+  <g font-family="system-ui, sans-serif" font-size="14" fill="#172033">
+    <rect x="560" y="104" width="16" height="16" rx="2" fill="#526581"/><text x="584" y="117">Baseline</text>
+    <rect x="670" y="104" width="16" height="16" rx="2" fill="#157a6e"/><text x="694" y="117">Skill</text>
+  </g>
+</svg>

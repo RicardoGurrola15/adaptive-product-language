@@ -88,6 +88,14 @@ python3 -m unittest discover -s benchmarks -p 'test_*.py'
 
 Do not run a real model benchmark as ordinary validation. Benchmark outputs require a fixed paired protocol, blinded quality evaluation, and observed telemetry. Text length or byte differences alone are not quality evidence. See [`benchmarks/README.md`](benchmarks/README.md), the [community testing protocol](docs/community-testing.md), and the [preliminary observations](docs/benchmark-results.md).
 
+### Visual summaries
+
+The figures below summarize the documented observations. They are descriptive only: UTF-8 bytes are not tokens, and one-sample quality ties are not evidence of general superiority. See the [full benchmark notes](docs/benchmark-results.md) for the exact data and limits.
+
+[![Validated paired UTF-8 output bytes by model](docs/assets/output-bytes-comparison.svg)](docs/benchmark-results.md)
+
+[![Codex blind quality observations showing baseline and balanced ties](docs/assets/codex-quality-observations.svg)](docs/benchmark-results.md)
+
 ## Contributing
 
 Start with [`CONTRIBUTING.md`](CONTRIBUTING.md). Report a failure with the smallest reproducible prompt and context, propose privacy-safe fixtures, and separate quality observations from efficiency measurements. See the [issue tracker](https://github.com/RicardoGurrola15/adaptive-product-language/issues) and [pull requests](https://github.com/RicardoGurrola15/adaptive-product-language/pulls).
