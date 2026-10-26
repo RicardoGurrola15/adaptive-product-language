@@ -1,33 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" role="img" aria-labelledby="chart-title chart-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 600" role="img" aria-labelledby="chart-title chart-desc">
   <title id="chart-title">Codex blind quality observations: baseline and balanced ties</title>
   <desc id="chart-desc">For contextual phone landing and contextual SaaS landing, baseline and balanced each scored 3.89 out of 4, with a zero delta. Each condition has one evaluator and one sample. The chart shows observational ties, not evidence of general superiority.</desc>
-  <rect width="980" height="520" fill="#ffffff"/>
+  <rect width="1120" height="600" fill="#ffffff"/>
   <text x="56" y="48" font-family="system-ui, sans-serif" font-size="25" font-weight="700" fill="#172033">Codex blind quality observations</text>
-  <text x="56" y="76" font-family="system-ui, sans-serif" font-size="15" fill="#42526b">Baseline and balanced conditions tie at 3.89/4 · one evaluator and one sample per condition</text>
-  <line x1="180" y1="390" x2="900" y2="390" stroke="#26364d" stroke-width="2"/>
-  <line x1="180" y1="140" x2="180" y2="390" stroke="#26364d" stroke-width="2"/>
-  <g font-family="system-ui, sans-serif" font-size="12" fill="#42526b" text-anchor="end">
-    <text x="170" y="394">0</text><text x="170" y="332">1</text><text x="170" y="269">2</text><text x="170" y="207">3</text><text x="170" y="144">4</text>
-  </g>
-  <g stroke="#d9e1ec" stroke-width="1"><line x1="180" y1="327.5" x2="900" y2="327.5"/><line x1="180" y1="265" x2="900" y2="265"/><line x1="180" y1="202.5" x2="900" y2="202.5"/><line x1="180" y1="140" x2="900" y2="140"/></g>
-  <text x="76" y="280" transform="rotate(-90 76 280)" font-family="system-ui, sans-serif" font-size="13" fill="#42526b">Quality score (out of 4)</text>
-  <g>
-    <rect x="275" y="146.9" width="100" height="243.1" rx="4" fill="#526581"/>
-    <rect x="395" y="146.9" width="100" height="243.1" rx="4" fill="#157a6e"/>
-    <text x="385" y="119" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#172033">3.89 / 4</text>
-    <text x="385" y="429" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#172033">Contextual phone landing</text>
-    <text x="385" y="453" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#42526b">Δ 0.00 · n=1 each</text>
-  </g>
-  <g>
-    <rect x="650" y="146.9" width="100" height="243.1" rx="4" fill="#526581"/>
-    <rect x="770" y="146.9" width="100" height="243.1" rx="4" fill="#157a6e"/>
-    <text x="760" y="119" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#172033">3.89 / 4</text>
-    <text x="760" y="429" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#172033">Contextual SaaS landing</text>
-    <text x="760" y="453" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#42526b">Δ 0.00 · n=1 each</text>
-  </g>
+  <text x="56" y="78" font-family="system-ui, sans-serif" font-size="15" fill="#42526b">Baseline and balanced tie at 3.89/4 · one evaluator and one sample per condition</text>
   <g font-family="system-ui, sans-serif" font-size="14" fill="#172033">
-    <rect x="590" y="104" width="16" height="16" rx="2" fill="#526581"/><text x="614" y="117">Baseline</text>
-    <rect x="700" y="104" width="16" height="16" rx="2" fill="#157a6e"/><text x="724" y="117">Balanced</text>
+    <rect x="820" y="34" width="16" height="16" rx="2" fill="#526581"/><text x="844" y="47">Baseline</text>
+    <rect x="930" y="34" width="16" height="16" rx="2" fill="#157a6e"/><text x="954" y="47">Balanced</text>
   </g>
-  <text x="56" y="495" font-family="system-ui, sans-serif" font-size="13" fill="#42526b">Observational ties only; no general superiority conclusion.</text>
+  <line x1="180" y1="420" x2="1030" y2="420" stroke="#26364d" stroke-width="2"/>
+  <line x1="180" y1="145" x2="180" y2="420" stroke="#26364d" stroke-width="2"/>
+  <g font-family="system-ui, sans-serif" font-size="12" fill="#42526b" text-anchor="end">
+    <text x="170" y="424">0</text><text x="170" y="355">1</text><text x="170" y="286">2</text><text x="170" y="218">3</text><text x="170" y="149">4</text>
+  </g>
+  <g stroke="#d9e1ec" stroke-width="1">
+    <line x1="180" y1="351.25" x2="1030" y2="351.25"/><line x1="180" y1="282.5" x2="1030" y2="282.5"/><line x1="180" y1="213.75" x2="1030" y2="213.75"/><line x1="180" y1="145" x2="1030" y2="145"/>
+  </g>
+  <text x="76" y="315" transform="rotate(-90 76 315)" font-family="system-ui, sans-serif" font-size="13" fill="#42526b">Quality score (out of 4)</text>
+  <g>
+    <rect x="285" y="152.6" width="100" height="267.4" rx="4" fill="#526581"/>
+    <rect x="405" y="152.6" width="100" height="267.4" rx="4" fill="#157a6e"/>
+    <text x="395" y="126" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#172033">3.89 / 4</text>
+    <text x="395" y="464" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#172033">Contextual phone</text>
+    <text x="395" y="487" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#172033">landing</text>
+    <text x="395" y="513" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#42526b">Δ 0.00 · n=1 each</text>
+  </g>
+  <g>
+    <rect x="735" y="152.6" width="100" height="267.4" rx="4" fill="#526581"/>
+    <rect x="855" y="152.6" width="100" height="267.4" rx="4" fill="#157a6e"/>
+    <text x="845" y="126" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#172033">3.89 / 4</text>
+    <text x="845" y="464" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#172033">Contextual SaaS</text>
+    <text x="845" y="487" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#172033">landing</text>
+    <text x="845" y="513" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#42526b">Δ 0.00 · n=1 each</text>
+  </g>
+  <text x="56" y="570" font-family="system-ui, sans-serif" font-size="13" fill="#42526b">Observational ties only; no general superiority conclusion.</text>
 </svg>
